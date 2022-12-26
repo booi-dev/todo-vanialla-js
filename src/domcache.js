@@ -15,6 +15,11 @@ let domcache = (function () {
         return document.querySelectorAll(`[${params}]`)
     }
 
+    function createNew(element) {
+        if (!element) return
+        return document.createElement(element)
+    }
+
     function updateTextContent(element, params) {
         return element.textContent = params
     }
@@ -31,7 +36,7 @@ let domcache = (function () {
         return element.innerHtml = params;
     }
 
-    return { findCls, findId, findData, findDataAll, updateTextContent, addCls, setAttribute, addHtml }
+    return { findCls, findId, findData, findDataAll, createNew, updateTextContent, addCls, setAttribute, addHtml }
 })()
 
 export default domcache;

@@ -1,35 +1,19 @@
 import DOM from './domcache'
 import PS from './pubsub'
+import './todo'
 
 function app() {
-    let entries = DOM.findData('data-entries')
-    DOM.updateTextContent(entries, "i need this")
+    let itemsDiv = DOM.findData('data-items')
+    let newEnry = DOM.createNew('')
 
-    let item = DOM.findDataAll()
-    // console.log(item)
-
-    function temp(data) {
-        console.log('testing ' + data)
+    function temp(params) {
+        console.log(params)
     }
 
-    function temp2(data) {
-        console.log('testing2 ' + data)
-    }
+    PS.sub("New", temp)
+    let getitem = PS.trigger('createEntry', 'i care')
 
-    function temp3(data) {
-        console.log('testing3 ' + data)
-    }
-
-    function temp4(data) {
-        console.log('testing4 ' + data)
-    }
-
-    PS.sub("idonno", temp)
-    PS.sub("idonno", temp2)
-    PS.sub("idonno", temp3)
-    PS.sub("idonno", temp4)
-
-    PS.trigger("idonno", 12)
+    console.log(getitem)
 
 }
 
