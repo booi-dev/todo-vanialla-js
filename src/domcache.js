@@ -1,4 +1,4 @@
-export default (function domcache() {
+let domcache = (function () {
     function findCls(params) {
         return document.querySelectorAll(`.${params}`)
     }
@@ -33,3 +33,5 @@ export default (function domcache() {
 
     return { findCls, findId, findData, findDataAll, updateTextContent, addCls, setAttribute, addHtml }
 })()
+
+export default domcache;
