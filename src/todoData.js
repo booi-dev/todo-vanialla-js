@@ -10,7 +10,7 @@ import PS from './pubsub'
             note: "I don't know what to write here.",
             dueDate: "",
             priority: "high",
-            group: "",
+            group: "dragon",
             check: false
         },
 
@@ -20,7 +20,7 @@ import PS from './pubsub'
             note: "I still don't know what to write here.",
             dueDate: "",
             priority: "medium",
-            group: "",
+            group: "tiger",
             check: false
         },
 
@@ -30,7 +30,7 @@ import PS from './pubsub'
             note: "I love dog. I love cat more.",
             dueDate: "",
             priority: "low",
-            group: "",
+            group: "gate",
             check: false
         }
     ]

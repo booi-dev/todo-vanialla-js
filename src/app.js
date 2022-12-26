@@ -5,11 +5,21 @@ import './todoCRUD'
 
 function app() {
 
-    let createTodoTitleEl = function (id, title) {
+    let createTodoTitleEl = function (id, title, group) {
         let titleEl = DOM.createEl('div')
+        let inGroup = DOM.createEl('div')
+        let isCheck = DOM.createEl('button')
+        let disTitle = DOM.createEl('div')
+
         titleEl.setAttribute('data-item', '')
         titleEl.setAttribute('data-id', id)
-        titleEl.textContent = title;
+
+        isCheck.textContent = 'o_o';
+        inGroup.textContent = group;
+        disTitle.textContent = title;
+
+        titleEl.append(inGroup, isCheck, disTitle)
+
         return titleEl;
     }
 
@@ -19,13 +29,12 @@ function app() {
         itemsDiv.insertBefore(el, existingEl)
     }
 
-
     let addEntry = function (e) {
         if (e.key === "Enter") {
             e.preventDefault();
             // create new todo 
             let newEntry = PS.trigger('createEntry', itemInput.value)
-            let neweEntryItemEl = createTodoTitleEl(newEntry.id, newEntry.title)
+            let neweEntryItemEl = createTodoTitleEl(newEntry.id, newEntry.title, newEntry.group)
             addTodoEl(neweEntryItemEl)
 
             itemInput.value = '';
@@ -41,7 +50,7 @@ function app() {
     let todolist = PS.trigger('getTodoDataList', '')
 
     todolist.forEach(list => {
-        let listEl = createTodoTitleEl(list.id, list.title)
+        let listEl = createTodoTitleEl(list.id, list.title, list.group)
         addTodoEl(listEl)
     })
 

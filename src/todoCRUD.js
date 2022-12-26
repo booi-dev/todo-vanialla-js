@@ -11,6 +11,7 @@ import PS from './pubsub'
             note: "",
             dueDate: "",
             priority: "",
+            group: "white tiger",
             check: false
         }
     }
