@@ -42,8 +42,12 @@ function app() {
         }
     }
 
-    let updateInputPlaceholder = function (e) {
-        itemInput.placeholder = 'Enter task title'
+    let updatePlaceholderFocus = function (e) {
+        itemInput.placeholder = 'Enter task title';
+    }
+
+    let updatePlaceholderBlur = function (e) {
+        itemInput.placeholder = '+ add task';
     }
 
     // get todolist from todoData module using pubsub
@@ -55,7 +59,8 @@ function app() {
     })
 
     let itemInput = DOM.findData('data-item-input')
-    itemInput.addEventListener('click', updateInputPlaceholder)
+    itemInput.addEventListener('focus', updatePlaceholderFocus)
+    itemInput.addEventListener('blur', updatePlaceholderBlur)
     itemInput.addEventListener('keypress', addEntry)
 
 }
