@@ -1,4 +1,4 @@
-let todoData = function () {
+let todoData = (function () {
 
     let todolist = [
 
@@ -34,10 +34,11 @@ let todoData = function () {
     ]
 
     function returnDatalist(params) {
-        return todolist
+        return todolist;
     }
 
-    return returnDatalist
-}
+    return { returnDatalist };
+
+})()
 
 export default todoData;

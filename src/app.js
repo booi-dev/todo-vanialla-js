@@ -31,6 +31,14 @@ function app() {
         itemInput.placeholder = 'Enter task title'
     }
 
+    let todolist = todoData.returnDatalist()
+
+    todolist.forEach(list => {
+        let listEl = createTodoTitleEl(list.id, list.title)
+        itemsDiv.append(listEl)
+    })
+
+
     let itemInput = DOM.findData('data-item-input')
     itemInput.addEventListener('click', updateInputPlaceholder)
     itemInput.addEventListener('keypress', addEntry)
