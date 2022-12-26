@@ -32,7 +32,14 @@ import PS from './pubsub'
         })
     }
 
+    function deleteItem(params) {
+
+    }
+
     PS.sub('createEntry', createItem)
+    PS.sub('updateEntry', updateItem)
+    PS.sub('readEntry', readItem)
+    PS.sub('deleteEntry', deleteItem)
 
 })()
 

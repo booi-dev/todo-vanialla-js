@@ -1,5 +1,10 @@
 let domcache = (function () {
-    function findCls(params) {
+
+    function findClass(params) {
+        return document.querySelector(`.${params}`)
+    }
+
+    function findClassAll(params) {
         return document.querySelectorAll(`.${params}`)
     }
 
@@ -15,12 +20,12 @@ let domcache = (function () {
         return document.querySelectorAll(`[${params}]`)
     }
 
-    function createNew(element) {
+    function createEl(element) {
         if (!element) return
         return document.createElement(element)
     }
 
-    function updateTextContent(element, params) {
+    function updateText(element, params) {
         return element.textContent = params
     }
 
@@ -36,7 +41,7 @@ let domcache = (function () {
         return element.innerHtml = params;
     }
 
-    return { findCls, findId, findData, findDataAll, createNew, updateTextContent, addCls, setAttribute, addHtml }
+    return { findClass, findClassAll, findId, findData, findDataAll, createEl, updateText, addCls, setAttribute, addHtml }
 })()
 
 export default domcache;
