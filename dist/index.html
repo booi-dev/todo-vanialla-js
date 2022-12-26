@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="main.js" defer></script>
     <title>bo's to-do</title>
   </head>
   <body>
@@ -13,13 +14,13 @@
       <main class="app-main">
         <div class="app-title">Good Morning / Noon / Evening</div>
         <div class="app-calendar">25th Mon</div>
-        <div class="app-entries">
-          <div class="entries-item">
+        <div class="app-entries" data-entries>
+          <div class="entries-item" data-item>
             <button>O_O</button>
-            <div class="item-of">>Project recipe</div>
+            <div class="item-list-of">>Project recipe</div>
             <div class="item-title">I need to do her</div>
           </div>
-          <div class="entry-add">
+          <div class="item-add">
             <textarea>Add Note</textarea>
           </div>
         </div>
