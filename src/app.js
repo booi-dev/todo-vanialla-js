@@ -6,7 +6,6 @@ function app() {
     let itemsDiv = DOM.findData('data-items')
     let itemInput = DOM.findData('data-item-input')
 
-
     let addEntry = function (e) {
         if (e.key === "Enter") {
             e.preventDefault();
@@ -18,12 +17,10 @@ function app() {
     }
 
     let updateInputPlaceholder = function (e) {
-        console.log('sdf')
+        itemInput.placeholder = 'Enter task title'
     }
 
-
-
-    itemInput.addEventListener('onchange', updateInputPlaceholder)
+    itemInput.addEventListener('click', updateInputPlaceholder)
     itemInput.addEventListener('keypress', addEntry)
 
     // let getitem = PS.trigger('createEntry', 'i care')
