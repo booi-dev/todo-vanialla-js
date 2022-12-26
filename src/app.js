@@ -8,29 +8,29 @@ function app() {
     let item = DOM.findDataAll()
     // console.log(item)
 
-    function temp() {
-        console.log('testing')
+    function temp(data) {
+        console.log('testing ' + data)
     }
 
-    function temp2() {
-        console.log('testing')
+    function temp2(data) {
+        console.log('testing2 ' + data)
     }
 
-    function temp3() {
-        console.log('testing')
+    function temp3(data) {
+        console.log('testing3 ' + data)
     }
 
-    function temp4() {
-        console.log('testing')
+    function temp4(data) {
+        console.log('testing4 ' + data)
     }
 
     PS.sub("idonno", temp)
     PS.sub("idonno", temp2)
     PS.sub("idonno", temp3)
     PS.sub("idonno", temp4)
-    PS.sub("idonno", temp)
-    PS.sub("idonno", temp)
-    PS.unsub("idonno", temp2)
+
+    PS.trigger("idonno", 12)
+
 }
 
 export default app;
