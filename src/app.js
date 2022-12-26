@@ -5,7 +5,7 @@ import './todoCRUD'
 
 function app() {
 
-    let createTodoTitleEl = function (id, title, group) {
+    let createTodoTitleEl = function ({ id, title, group }) {
         let titleEl = DOM.createEl('div')
         let inGroup = DOM.createEl('div')
         let isCheck = DOM.createEl('button')
@@ -34,7 +34,7 @@ function app() {
             e.preventDefault();
             // create new todo 
             let newEntry = PS.trigger('createEntry', itemInput.value)
-            let neweEntryItemEl = createTodoTitleEl(newEntry.id, newEntry.title, newEntry.group)
+            let neweEntryItemEl = createTodoTitleEl(newEntry)
             addTodoEl(neweEntryItemEl)
 
             itemInput.value = '';
@@ -50,7 +50,7 @@ function app() {
     let todolist = PS.trigger('getTodoDataList', '')
 
     todolist.forEach(list => {
-        let listEl = createTodoTitleEl(list.id, list.title, list.group)
+        let listEl = createTodoTitleEl(list)
         addTodoEl(listEl)
     })
 
