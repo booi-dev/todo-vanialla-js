@@ -8,6 +8,7 @@ let todoData = function () {
             note: "I don't know what to write here.",
             dueDate: "",
             priority: "high",
+            group: "",
             check: false
         },
 
@@ -17,6 +18,7 @@ let todoData = function () {
             note: "I still don't know what to write here.",
             dueDate: "",
             priority: "medium",
+            group: "",
             check: false
         },
 
@@ -26,6 +28,7 @@ let todoData = function () {
             note: "I love dog. I love cat more.",
             dueDate: "",
             priority: "low",
+            group: "",
             check: false
         }
     ]

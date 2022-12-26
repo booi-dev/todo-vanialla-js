@@ -8,23 +8,17 @@ function app() {
 
     let createTodoTitleEl = function (id, title) {
         let titleEl = DOM.createEl('div')
-        titleEl.textContent = title
-
+        titleEl.setAttribute('data-id', id)
+        titleEl.textContent = title;
+        return titleEl;
     }
-
-
-
-
-
-
 
     let addEntry = function (e) {
         if (e.key === "Enter") {
             e.preventDefault();
             let itemsDiv = DOM.findData('data-todo-items')
             let newEntry = PS.trigger('createEntry', itemInput.value)
-            let neweEntryItemEl = DOM.createEl('div')
-            neweEntryItemEl.textContent = newEntry.title;
+            let neweEntryItemEl = createTodoTitleEl(newEntry.id, newEntry.title)
             itemsDiv.append(neweEntryItemEl)
 
             itemInput.value = '';
