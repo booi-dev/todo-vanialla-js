@@ -1,4 +1,6 @@
-let todoData = (function () {
+import PS from './pubsub'
+
+(function () {
 
     let todolist = [
 
@@ -37,8 +39,6 @@ let todoData = (function () {
         return todolist;
     }
 
-    return { returnDatalist };
+    PS.sub('getTodoDataList', returnDatalist)
 
 })()
-
-export default todoData;

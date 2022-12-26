@@ -1,25 +1,32 @@
 import DOM from './domcache'
 import PS from './pubsub'
-import todoData from './todoData'
+import './todoData'
 import './todoCRUD'
 
 function app() {
-    let itemsDiv = DOM.findData('data-todo-items')
 
     let createTodoTitleEl = function (id, title) {
         let titleEl = DOM.createEl('div')
+        titleEl.setAttribute('data-item', '')
         titleEl.setAttribute('data-id', id)
         titleEl.textContent = title;
         return titleEl;
     }
 
+    let addTodoEl = function (el) {
+        let itemsDiv = DOM.findData('data-todo-items')
+        let existingEl = DOM.findData('data-item')
+        itemsDiv.insertBefore(el, existingEl)
+    }
+
+
     let addEntry = function (e) {
         if (e.key === "Enter") {
             e.preventDefault();
-            let itemsDiv = DOM.findData('data-todo-items')
+            // create new todo 
             let newEntry = PS.trigger('createEntry', itemInput.value)
             let neweEntryItemEl = createTodoTitleEl(newEntry.id, newEntry.title)
-            itemsDiv.append(neweEntryItemEl)
+            addTodoEl(neweEntryItemEl)
 
             itemInput.value = '';
             updateInputPlaceholder()
@@ -27,23 +34,20 @@ function app() {
     }
 
     let updateInputPlaceholder = function (e) {
-        console.log(e)
         itemInput.placeholder = 'Enter task title'
     }
 
-    let todolist = todoData.returnDatalist()
+    // get todolist from todoData module using pubsub
+    let todolist = PS.trigger('getTodoDataList', '')
 
     todolist.forEach(list => {
         let listEl = createTodoTitleEl(list.id, list.title)
-        itemsDiv.append(listEl)
+        addTodoEl(listEl)
     })
-
 
     let itemInput = DOM.findData('data-item-input')
     itemInput.addEventListener('click', updateInputPlaceholder)
     itemInput.addEventListener('keypress', addEntry)
-
-    // let getitem = PS.trigger('createEntry', 'i care')
 
 }
 
