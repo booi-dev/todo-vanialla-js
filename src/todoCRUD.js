@@ -4,7 +4,6 @@ import PS from './pubsub'
     let todolist = [];
 
     function createItem(title) {
-        console.log("create item with title: " + title)
         let itemId = todolist.length + 1;
         return {
             id: itemId,
@@ -16,7 +15,7 @@ import PS from './pubsub'
         }
     }
 
-    function updateItem(id, item, note, dueDate, priority, check) {
+    function updateItem(id, title, note, dueDate, priority, check) {
         //need more
         id: id;
         title: item;
@@ -32,7 +31,8 @@ import PS from './pubsub'
         })
     }
 
-    function deleteItem(params) {
+    function deleteItem(id) {
+
 
     }
 

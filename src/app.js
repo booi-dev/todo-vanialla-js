@@ -1,25 +1,43 @@
 import DOM from './domcache'
 import PS from './pubsub'
-import './todo'
+import todoData from './todoData'
+import './todoCRUD'
 
 function app() {
-    let itemsDiv = DOM.findData('data-items')
-    let itemInput = DOM.findData('data-item-input')
+    let itemsDiv = DOM.findData('data-todo-items')
+
+    let createTodoTitleEl = function (id, title) {
+        let titleEl = DOM.createEl('div')
+        titleEl.textContent = title
+
+    }
+
+
+
+
+
+
 
     let addEntry = function (e) {
         if (e.key === "Enter") {
             e.preventDefault();
+            let itemsDiv = DOM.findData('data-todo-items')
             let newEntry = PS.trigger('createEntry', itemInput.value)
             let neweEntryItemEl = DOM.createEl('div')
-            neweEntryItemEl.textContent = newEntry.title
+            neweEntryItemEl.textContent = newEntry.title;
             itemsDiv.append(neweEntryItemEl)
+
+            itemInput.value = '';
+            updateInputPlaceholder()
         }
     }
 
     let updateInputPlaceholder = function (e) {
+        console.log(e)
         itemInput.placeholder = 'Enter task title'
     }
 
+    let itemInput = DOM.findData('data-item-input')
     itemInput.addEventListener('click', updateInputPlaceholder)
     itemInput.addEventListener('keypress', addEntry)
 

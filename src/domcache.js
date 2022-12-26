@@ -25,23 +25,7 @@ let domcache = (function () {
         return document.createElement(element)
     }
 
-    function updateText(element, params) {
-        return element.textContent = params
-    }
-
-    function addCls(element, params) {
-        return element.classList.add(params)
-    }
-
-    function setAttribute(element, attribute, params) {
-        return element.setAttribute(attribute, params)
-    }
-
-    function addHtml(element, params) {
-        return element.innerHtml = params;
-    }
-
-    return { findClass, findClassAll, findId, findData, findDataAll, createEl, updateText, addCls, setAttribute, addHtml }
+    return { findClass, findClassAll, findId, findData, findDataAll, createEl }
 })()
 
 export default domcache;
