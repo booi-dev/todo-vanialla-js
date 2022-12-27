@@ -10,17 +10,11 @@ let domcache = (function () {
     }
 
     function findId(params) {
-        return document.querySelector(`${params}`)
+        return document.getElementById(`#${params}`)
     }
 
-    function findAtt(params) {
-        // console.log(params)
-        return document.querySelector(`${params}`)
-    }
-
-    function findAttAll(params) {
-        console.log(params)
-        return document.querySelectorAll(`${params}`)
+    function findClass(params) {
+        return document.getElementsByClassName(`.${params}`)
     }
 
     function createEl(element) {
@@ -28,7 +22,7 @@ let domcache = (function () {
         return document.createElement(element)
     }
 
-    return { find, findAll, findId, findAtt, findAttAll, createEl }
+    return { find, findAll, findId, findClass, createEl }
 })()
 
 export default domcache;

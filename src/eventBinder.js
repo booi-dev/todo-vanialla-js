@@ -25,7 +25,7 @@ function eventBinder() {
         }
     }
 
-    let itemInput = DOM.findAtt('[data-item-input]')
+    let itemInput = DOM.find('[data-item-input]')
     itemInput.addEventListener('focus', inputFocusHandler)
     itemInput.addEventListener('blur', inputBlurHandler)
     itemInput.addEventListener('keypress', inputEnterhandler)
@@ -41,7 +41,7 @@ function eventBinder() {
         PS.trigger('removeEntry', +id)
     }
 
-    let delBtns = DOM.findAttAll('[data-del]')
+    let delBtns = DOM.findAll('[data-del]')
     delBtns.forEach((btn) => {
         btn.addEventListener('click', delBtnEventHandler)
     })

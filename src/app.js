@@ -1,5 +1,5 @@
 import PS from './PS'
-import DOM from './DOMquery'
+// import DOM from './DOMquery'
 import './todoCRUD'
 import './updateDOM'
 import eventBinder from './eventBinder'

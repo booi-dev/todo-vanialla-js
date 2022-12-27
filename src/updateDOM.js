@@ -15,8 +15,8 @@ import PS from './PS'
     }
 
     let addEntry = function (el) {
-        let itemsDiv = DOM.findAtt('[data-todo-items]')
-        let existingEl = DOM.findAtt('[data-item]')
+        let itemsDiv = DOM.find('[data-todo-items]')
+        let existingEl = DOM.find('[data-item]')
         itemsDiv.insertBefore(el, existingEl)
     }
 
@@ -50,17 +50,17 @@ import PS from './PS'
     }
 
     let removeEntry = function (id) {
-        let getTargetEntry = DOM.findAtt(`[data-item][data-id='${id}']`)
+        let getTargetEntry = DOM.find(`[data-item][data-id='${id}']`)
         getTargetEntry.remove()
     }
 
     let updatePlaceHolderFocus = function () {
-        let itemInput = DOM.findAtt('[data-item-input]')
+        let itemInput = DOM.find('[data-item-input]')
         itemInput.placeholder = ' enter task title'
     }
 
     let updatePlaceHolderBlur = function () {
-        let itemInput = DOM.findAtt('[data-item-input]')
+        let itemInput = DOM.find('[data-item-input]')
         itemInput.placeholder = '+ add task'
     }
 
