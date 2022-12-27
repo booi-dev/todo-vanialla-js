@@ -46,6 +46,7 @@ import PS from './PS'
 
     function createTodo({ title }) {
         let itemId = todolist.length + 1;
+        console.log(itemId)
         let newTodo = {
             id: itemId,
             title: title,

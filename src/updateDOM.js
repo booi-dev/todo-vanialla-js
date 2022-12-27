@@ -13,6 +13,7 @@ import PS from './PS'
     }
 
     let createEntryTitle = function ({ id, title, group }) {
+        // console.log(id)
 
         let titleEl = DOM.createEl('div')
         let inGroup = DOM.createEl('div')
@@ -24,7 +25,6 @@ import PS from './PS'
         titleEl.setAttribute('data-id', id)
 
         delBtn.setAttribute('data-del', '')
-        delBtn.setAttribute('data-id', id)
 
         isCheck.textContent = 'o_o';
         inGroup.textContent = group;
@@ -43,7 +43,7 @@ import PS from './PS'
     }
 
     let removeEntry = function (id) {
-        let getTargetEntry = DOM.findAtt(`[data-id='${id}']`)
+        let getTargetEntry = DOM.findAtt(`[data-item][data-id='${id}']`)
         getTargetEntry.remove()
     }
 

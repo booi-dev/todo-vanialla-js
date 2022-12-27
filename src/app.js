@@ -8,14 +8,10 @@ function app() {
 
     PS.trigger('renderEntries')
 
-    let createAndAddTitleEntry = function (item) {
-        let titleEl = PS.trigger('createEntryTitle', item)
-        PS.trigger('addEntry', titleEl)
-    }
-
-    // todolist.forEach(list => {
-    //     createAndAddTitleEntry(list)
-    // })
+    // let createAndAddTitleEntry = function (item) {
+    //     let titleEl = PS.trigger('createEntryTitle', item)
+    //     PS.trigger('addEntry', titleEl)
+    // }
 
     let inputFocusHandler = function (params) {
         PS.trigger('updatePlaceHolderFocus')
@@ -30,7 +26,8 @@ function app() {
         if (e.key === "Enter") {
             e.preventDefault();
             let todo = PS.trigger('createTodo', item)
-            createAndAddTitleEntry(todo)
+            let titleEl = PS.trigger('createEntryTitle', todo)
+            PS.trigger('addEntry', titleEl)
             itemInput.value = ''
             inputFocusHandler()
         }
@@ -42,8 +39,13 @@ function app() {
     itemInput.addEventListener('keypress', inputEnterhandler)
 
     let delBtnEventHandler = function (e) {
-        let id = e.target.getAttribute("data-del-id")
-        // PS.trigger('delTodo', id)
+
+        let titleEl = e.target.parentElement;
+        console.log(titleEl)
+        let id = titleEl.dataset.id;
+        console.log(id)
+
+        PS.trigger('delTodo', id)
         PS.trigger('removeEntry', id)
     }
 
