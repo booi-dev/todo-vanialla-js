@@ -38,7 +38,6 @@ import PS from './pubsub'
         itemInput.placeholder = '+ add task';
     }
 
-
     PS.sub('createEntryTitle', createEntryTitle)
     PS.sub('addEntry', addEntry)
     PS.sub('updatePlaceHolderFocus', updatePlaceholderFocus)

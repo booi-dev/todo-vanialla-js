@@ -36,7 +36,8 @@ import PS from './pubsub'
     ]
 
     let addTodo = function (todo) {
-        todolist.push(todo)
+        let item = PS.trigger('createTodo', todo)
+        todolist.push(item)
         console.log(todolist)
     }
 

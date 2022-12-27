@@ -21,12 +21,13 @@ function app() {
             let titleEl = PS.trigger('createEntryTitle', item)
             PS.trigger('addEntry', titleEl)
             PS.trigger('addTodo', item)
+            PS.trigger('updatePlaceholderFocus')
         }
     }
 
     let itemInput = DOM.findData('data-item-input')
-    itemInput.addEventListener('focus', PS.trigger.apply('updatePlaceholderFocus'))
-    itemInput.addEventListener('blur', PS.trigger.apply('updatePlaceholderBlur'))
+    itemInput.addEventListener('focus', PS.trigger('updatePlaceholderFocus'))
+    itemInput.addEventListener('blur', PS.trigger('updatePlaceholderBlur'))
     itemInput.addEventListener('keypress', inputEnterhandler)
 }
 

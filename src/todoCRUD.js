@@ -3,7 +3,8 @@ import PS from './pubsub'
 (function () {
     let todolist = [];
 
-    function createItem({ title }) {
+    function createTodo({ title }) {
+        // console.log(title)
         let itemId = todolist.length + 1;
         return {
             id: itemId,
@@ -16,7 +17,7 @@ import PS from './pubsub'
         }
     }
 
-    function updateItem(id, title, note, dueDate, priority, check) {
+    function updateTodo(id, title, note, dueDate, priority, check) {
         //need more
         id: id;
         title: title;
@@ -26,21 +27,21 @@ import PS from './pubsub'
         check: check
     }
 
-    function readItem(id) {
+    function readTodo(id) {
         todolist.find((item) => {
             return item.id === id;
         })
     }
 
-    function deleteItem(id) {
+    function deleteTodo(id) {
 
 
     }
 
-    PS.sub('createEntry', createItem)
-    PS.sub('updateEntry', updateItem)
-    PS.sub('readEntry', readItem)
-    PS.sub('deleteEntry', deleteItem)
+    PS.sub('createTodo', createTodo)
+    PS.sub('updateTodo', updateTodo)
+    PS.sub('readTodo', readTodo)
+    PS.sub('deleteTodo', deleteTodo)
 
 })()
 
