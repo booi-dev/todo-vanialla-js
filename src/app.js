@@ -5,7 +5,7 @@ import './todoCRUD'
 
 function app() {
 
-    let createTodoTitleEl = function ({ id, title, group }) {
+    let createEntryTitle = function ({ id, title, group }) {
         let titleEl = DOM.createEl('div')
         let inGroup = DOM.createEl('div')
         let isCheck = DOM.createEl('button')
@@ -23,19 +23,19 @@ function app() {
         return titleEl;
     }
 
-    let addTodoEl = function (el) {
+    let addEntry = function (el) {
         let itemsDiv = DOM.findData('data-todo-items')
         let existingEl = DOM.findData('data-item')
         itemsDiv.insertBefore(el, existingEl)
     }
 
-    let addEntry = function (e) {
+    let addTodo = function (e) {
         if (e.key === "Enter") {
             e.preventDefault();
             // create new todo 
             let newEntry = PS.trigger('createEntry', { title: itemInput.value })
-            let neweEntryItemEl = createTodoTitleEl(newEntry)
-            addTodoEl(neweEntryItemEl)
+            let neweEntryItemEl = createEntryTitle(newEntry)
+            addEntry(neweEntryItemEl)
 
             itemInput.value = '';
             updatePlaceholderFocus()
@@ -54,14 +54,14 @@ function app() {
     let todolist = PS.trigger('getTodoDataList', {})
 
     todolist.forEach(list => {
-        let listEl = createTodoTitleEl(list)
-        addTodoEl(listEl)
+        let listEl = createEntryTitle(list)
+        addEntry(listEl)
     })
 
     let itemInput = DOM.findData('data-item-input')
     itemInput.addEventListener('focus', updatePlaceholderFocus)
     itemInput.addEventListener('blur', updatePlaceholderBlur)
-    itemInput.addEventListener('keypress', addEntry)
+    itemInput.addEventListener('keypress', addTodo)
 
 }
 
