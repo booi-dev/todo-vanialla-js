@@ -79,6 +79,7 @@ import PS from './PS'
         for (let i = 0; i < todolist.length; i++) {
             if (todolist[i].id === id) {
                 console.log("match")
+                todolist.splice(i, 1)
             }
         }
         console.log(todolist)

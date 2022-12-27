@@ -41,9 +41,10 @@ function app() {
     itemInput.addEventListener('blur', inputBlurHandler)
     itemInput.addEventListener('keypress', inputEnterhandler)
 
-    let delBtnEventHandler = function (params) {
-        PS.trigger('delTodo', 1)
-        // console.log("del is clicked")
+    let delBtnEventHandler = function (e) {
+        console.log(e)
+        // PS.trigger('delTodo',)
+        // PS.trigger('removeEntry',)
     }
 
     let delBtns = DOM.findAttAll('data-del')

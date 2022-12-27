@@ -4,7 +4,6 @@ import PS from './PS'
 (function updateDOM() {
 
     let todolist = PS.trigger('getTodolist', 'nothing')
-    // console.log(todolist)
 
     let renderEntries = function () {
         todolist.forEach(list => {
@@ -42,6 +41,11 @@ import PS from './PS'
         itemsDiv.insertBefore(el, existingEl)
     }
 
+    let removeEntry = function (id) {
+        let getTargetEntry = DOM.findAtt(`data-id=${id}`)
+        getTargetEntry.remove()
+    }
+
     let updatePlaceHolderFocus = function () {
         let itemInput = DOM.findAtt('data-item-input')
         itemInput.placeholder = ' enter task title'
@@ -56,6 +60,7 @@ import PS from './PS'
 
     PS.sub('createEntryTitle', createEntryTitle)
     PS.sub('addEntry', addEntry)
+    PS.sub('removeEntry', removeEntry)
     PS.sub('updatePlaceHolderFocus', updatePlaceHolderFocus)
     PS.sub('updatePlaceHolderBlur', updatePlaceHolderBlur)
 
