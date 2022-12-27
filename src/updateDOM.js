@@ -1,7 +1,7 @@
 import DOM from './DOMcache'
 import PS from './pubsub'
 
-(function updateDOM(params) {
+(function updateDOM() {
 
     let createEntryTitle = function ({ id, title, group }) {
 

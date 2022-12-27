@@ -9,26 +9,39 @@ function app() {
     // get todolist from todoData module using pubsub
     let todolist = PS.trigger('getTodo', {})
 
+    let createAndAddTitle = function (item) {
+        let titleEl = PS.trigger('createEntryTitle', item)
+        PS.trigger('addEntry', titleEl)
+        // console.log(item)
+    }
+
     todolist.forEach(list => {
-        let listEl = PS.trigger('createEntryTitle', list)
-        PS.trigger('addEntry', listEl)
+        createAndAddTitle(list)
     })
 
     let inputEnterhandler = function (e) {
         let item = { title: itemInput.value }
         if (e.key === "Enter") {
             e.preventDefault();
-            let titleEl = PS.trigger('createEntryTitle', item)
-            PS.trigger('addEntry', titleEl)
-            PS.trigger('addTodo', item)
+            let todo = PS.trigger('createTodo', item)
+            createAndAddTitle(todo)
+            PS.trigger('addTodo', todo)
             PS.trigger('updatePlaceholderFocus')
         }
     }
 
     let itemInput = DOM.findData('data-item-input')
-    itemInput.addEventListener('focus', PS.trigger('updatePlaceholderFocus'))
+    itemInput.addEventListener('focus', focusHandler)
     itemInput.addEventListener('blur', PS.trigger('updatePlaceholderBlur'))
     itemInput.addEventListener('keypress', inputEnterhandler)
+
+
+    function focusHandler() {
+        console.log('shukfh')
+        PS.trigger('updatePlaceholderFocus')
+    }
+
+
 }
 
 export default app;
