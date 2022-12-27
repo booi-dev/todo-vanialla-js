@@ -1,12 +1,11 @@
 import PS from './PS'
 
 (function () {
-    let todolist = [];
+    let todolist = PS.trigger('getTodo')
 
     function createTodo({ title }) {
-        // console.log(title)
         let itemId = todolist.length + 1;
-        return {
+        let newTodo = {
             id: itemId,
             title: title,
             note: "",
@@ -15,6 +14,9 @@ import PS from './PS'
             group: "white tiger",
             check: false
         }
+        console.log(newTodo)
+        PS.trigger('addTodo', newTodo)
+        return newTodo
     }
 
     function updateTodo(id, title, note, dueDate, priority, check) {
@@ -33,7 +35,7 @@ import PS from './PS'
         })
     }
 
-    function deleteTodo(id) {
+    function delTodo(id) {
 
 
     }
@@ -41,7 +43,7 @@ import PS from './PS'
     PS.sub('createTodo', createTodo)
     PS.sub('updateTodo', updateTodo)
     PS.sub('readTodo', readTodo)
-    PS.sub('deleteTodo', deleteTodo)
+    PS.sub('delTodo', delTodo)
 
 })()
 

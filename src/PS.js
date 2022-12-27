@@ -25,7 +25,7 @@ let PS = (function () {
         return obj
     }
 
-    return { sub, unsub, trigger, events }
+    return { sub, unsub, trigger }
 
 })()
 

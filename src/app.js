@@ -6,16 +6,15 @@ import './todoCRUD'
 
 function app() {
 
-    // get todolist from todoData module using pubsub
     let todolist = PS.trigger('getTodo', {})
 
-    let createAndAddTitle = function (item) {
+    let createAndAddTitleEntry = function (item) {
         let titleEl = PS.trigger('createEntryTitle', item)
         PS.trigger('addEntry', titleEl)
     }
 
     todolist.forEach(list => {
-        createAndAddTitle(list)
+        createAndAddTitleEntry(list)
     })
 
     let inputFocusHandler = function (params) {
@@ -31,8 +30,7 @@ function app() {
         if (e.key === "Enter") {
             e.preventDefault();
             let todo = PS.trigger('createTodo', item)
-            createAndAddTitle(todo)
-            PS.trigger('addTodo', todo)
+            createAndAddTitleEntry(todo)
             itemInput.value = ''
             inputFocusHandler()
         }

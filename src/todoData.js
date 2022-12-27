@@ -39,6 +39,14 @@ import PS from './PS'
         todolist.push(todo)
     }
 
+    // let removeTodo = function (id) {
+    //     for (let i = 0; i < todolist.length; i++) {
+    //         if (todolist[i].id === id) {
+    //             console.log("match")
+    //         }
+    //     }
+    // }
+
     function returnTodo() {
         return todolist;
     }
