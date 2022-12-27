@@ -24,6 +24,7 @@ import PS from './PS'
         titleEl.setAttribute('data-id', id)
 
         delBtn.setAttribute('data-del', '')
+        delBtn.setAttribute('data-id', id)
 
         isCheck.textContent = 'o_o';
         inGroup.textContent = group;
@@ -36,23 +37,23 @@ import PS from './PS'
     }
 
     let addEntry = function (el) {
-        let itemsDiv = DOM.findAtt('data-todo-items')
-        let existingEl = DOM.findAtt('data-item')
+        let itemsDiv = DOM.findAtt('[data-todo-items]')
+        let existingEl = DOM.findAtt('[data-item]')
         itemsDiv.insertBefore(el, existingEl)
     }
 
     let removeEntry = function (id) {
-        let getTargetEntry = DOM.findAtt(`data-id=${id}`)
+        let getTargetEntry = DOM.findAtt(`[data-id='${id}']`)
         getTargetEntry.remove()
     }
 
     let updatePlaceHolderFocus = function () {
-        let itemInput = DOM.findAtt('data-item-input')
+        let itemInput = DOM.findAtt('[data-item-input]')
         itemInput.placeholder = ' enter task title'
     }
 
     let updatePlaceHolderBlur = function () {
-        let itemInput = DOM.findAtt('data-item-input')
+        let itemInput = DOM.findAtt('[data-item-input]')
         itemInput.placeholder = '+ add task'
     }
 

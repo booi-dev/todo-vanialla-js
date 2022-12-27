@@ -93,6 +93,5 @@ import PS from './PS'
     PS.sub('readTodo', readTodo)
     PS.sub('delTodo', delTodo)
 
-
 })()
 

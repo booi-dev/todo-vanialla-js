@@ -36,18 +36,18 @@ function app() {
         }
     }
 
-    let itemInput = DOM.findAtt('data-item-input')
+    let itemInput = DOM.findAtt('[data-item-input]')
     itemInput.addEventListener('focus', inputFocusHandler)
     itemInput.addEventListener('blur', inputBlurHandler)
     itemInput.addEventListener('keypress', inputEnterhandler)
 
     let delBtnEventHandler = function (e) {
-        console.log(e)
-        // PS.trigger('delTodo',)
-        // PS.trigger('removeEntry',)
+        let id = e.target.getAttribute("data-del-id")
+        // PS.trigger('delTodo', id)
+        PS.trigger('removeEntry', id)
     }
 
-    let delBtns = DOM.findAttAll('data-del')
+    let delBtns = DOM.findAttAll('[data-del]')
     delBtns.forEach((btn) => {
         btn.addEventListener('click', delBtnEventHandler)
     })
