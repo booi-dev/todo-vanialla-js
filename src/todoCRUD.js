@@ -55,7 +55,7 @@ import PS from './PS'
             group: "white tiger",
             check: false
         }
-        todolist.push(todo)
+        todolist.push(newTodo)
         return newTodo
     }
 
@@ -81,15 +81,17 @@ import PS from './PS'
                 console.log("match")
             }
         }
+        console.log(todolist)
     }
 
     // PS.sub('addTodo', addTodo)
-    PS.sub('getTodo', returnTodo)
+    PS.sub('getTodolist', returnTodo)
 
     PS.sub('createTodo', createTodo)
     PS.sub('updateTodo', updateTodo)
     PS.sub('readTodo', readTodo)
     PS.sub('delTodo', delTodo)
+
 
 })()
 

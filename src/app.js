@@ -1,19 +1,21 @@
-import DOM from './DOMcache'
 import PS from './PS'
-import './updateDOM'
+import DOM from './DOMcache'
 import './todoCRUD'
+import './updateDOM'
 
 function app() {
-    let todolist = PS.trigger('getTodo', {})
+    // let todolist = PS.trigger('getTodo', {})
+
+    PS.trigger('renderEntries')
 
     let createAndAddTitleEntry = function (item) {
         let titleEl = PS.trigger('createEntryTitle', item)
         PS.trigger('addEntry', titleEl)
     }
 
-    todolist.forEach(list => {
-        createAndAddTitleEntry(list)
-    })
+    // todolist.forEach(list => {
+    //     createAndAddTitleEntry(list)
+    // })
 
     let inputFocusHandler = function (params) {
         PS.trigger('updatePlaceHolderFocus')
@@ -40,7 +42,8 @@ function app() {
     itemInput.addEventListener('keypress', inputEnterhandler)
 
     let delBtnEventHandler = function (params) {
-        console.log("del is clicked")
+        PS.trigger('delTodo', 1)
+        // console.log("del is clicked")
     }
 
     let delBtns = DOM.findAttAll('data-del')

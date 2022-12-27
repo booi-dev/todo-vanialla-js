@@ -17,6 +17,7 @@ let PS = (function () {
     }
 
     function trigger(eventName, args) {
+        // console.log(eventName)
         if (!events[eventName]) return
         let obj
         events[eventName].forEach((fn) => {
@@ -25,7 +26,7 @@ let PS = (function () {
         return obj
     }
 
-    return { sub, unsub, trigger }
+    return { sub, unsub, trigger, events }
 
 })()
 

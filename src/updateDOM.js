@@ -3,6 +3,16 @@ import PS from './PS'
 
 (function updateDOM() {
 
+    let todolist = PS.trigger('getTodolist', 'nothing')
+    // console.log(todolist)
+
+    let renderEntries = function () {
+        todolist.forEach(list => {
+            let titleEl = PS.trigger('createEntryTitle', list)
+            PS.trigger('addEntry', titleEl)
+        })
+    }
+
     let createEntryTitle = function ({ id, title, group }) {
 
         let titleEl = DOM.createEl('div')
@@ -41,6 +51,8 @@ import PS from './PS'
         let itemInput = DOM.findAtt('data-item-input')
         itemInput.placeholder = '+ add task'
     }
+
+    PS.sub('renderEntries', renderEntries)
 
     PS.sub('createEntryTitle', createEntryTitle)
     PS.sub('addEntry', addEntry)
