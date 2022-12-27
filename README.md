@@ -8,13 +8,13 @@ add note funtionality
 
 ...
 
-allow, pubsub funtion to accept multiple argument.
-use object destructuring
-dynamic parameter
+allow, pubsub funtion to accept multiple argument. DONE
+use object destructuring DONE
+dynamic parameter DONE
 
 ...
 
-seperate module for updating DOM / Creating DOM
+seperate module for updating DOM / Creating DOM. DONE
 
 ...
 

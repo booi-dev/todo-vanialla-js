@@ -1,5 +1,5 @@
 import DOM from './DOMcache'
-import PS from './pubsub'
+import PS from './PS'
 
 (function updateDOM() {
 
@@ -23,24 +23,26 @@ import PS from './pubsub'
     }
 
     let addEntry = function (el) {
-        let itemsDiv = DOM.findData('data-todo-items')
-        let existingEl = DOM.findData('data-item')
+        let itemsDiv = DOM.findAtt('data-todo-items')
+        let existingEl = DOM.findAtt('data-item')
         itemsDiv.insertBefore(el, existingEl)
     }
 
-    let itemInput = DOM.findData('data-item-input')
-
-    let updatePlaceholderFocus = function (e) {
-        itemInput.placeholder = 'Enter task title';
+    let updatePlaceHolderFocus = function () {
+        let itemInput = DOM.findAtt('data-item-input')
+        itemInput.placeholder = ' enter task title'
     }
 
-    let updatePlaceholderBlur = function (e) {
-        itemInput.placeholder = '+ add task';
+    let updatePlaceHolderBlur = function () {
+        let itemInput = DOM.findAtt('data-item-input')
+        itemInput.placeholder = '+ add task'
     }
+
+
 
     PS.sub('createEntryTitle', createEntryTitle)
     PS.sub('addEntry', addEntry)
-    PS.sub('updatePlaceHolderFocus', updatePlaceholderFocus)
-    PS.sub('updatePlaceholderBlur', updatePlaceholderBlur)
+    PS.sub('updatePlaceHolderFocus', updatePlaceHolderFocus)
+    PS.sub('updatePlaceHolderBlur', updatePlaceHolderBlur)
 
 })()

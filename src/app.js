@@ -1,5 +1,5 @@
 import DOM from './DOMcache'
-import PS from './pubsub'
+import PS from './PS'
 import './todoData'
 import './updateDOM'
 import './todoCRUD'
@@ -12,12 +12,19 @@ function app() {
     let createAndAddTitle = function (item) {
         let titleEl = PS.trigger('createEntryTitle', item)
         PS.trigger('addEntry', titleEl)
-        // console.log(item)
     }
 
     todolist.forEach(list => {
         createAndAddTitle(list)
     })
+
+    let inputFocusHandler = function (params) {
+        PS.trigger('updatePlaceHolderFocus')
+    }
+
+    let inputBlurHandler = function (params) {
+        PS.trigger('updatePlaceHolderBlur')
+    }
 
     let inputEnterhandler = function (e) {
         let item = { title: itemInput.value }
@@ -26,22 +33,15 @@ function app() {
             let todo = PS.trigger('createTodo', item)
             createAndAddTitle(todo)
             PS.trigger('addTodo', todo)
-            PS.trigger('updatePlaceholderFocus')
+            itemInput.value = ''
+            inputFocusHandler()
         }
     }
 
-    let itemInput = DOM.findData('data-item-input')
-    itemInput.addEventListener('focus', focusHandler)
-    itemInput.addEventListener('blur', PS.trigger('updatePlaceholderBlur'))
+    let itemInput = DOM.findAtt('data-item-input')
+    itemInput.addEventListener('focus', inputFocusHandler)
+    itemInput.addEventListener('blur', inputBlurHandler)
     itemInput.addEventListener('keypress', inputEnterhandler)
-
-
-    function focusHandler() {
-        console.log('shukfh')
-        PS.trigger('updatePlaceholderFocus')
-    }
-
-
 }
 
 export default app;

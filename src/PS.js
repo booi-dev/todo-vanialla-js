@@ -1,4 +1,4 @@
-let pubsub = (function () {
+let PS = (function () {
     let events = {}
 
     function sub(eventName, fn) {
@@ -25,8 +25,8 @@ let pubsub = (function () {
         return obj
     }
 
-    return { sub, unsub, trigger }
+    return { sub, unsub, trigger, events }
 
 })()
 
-export default pubsub;
+export default PS;

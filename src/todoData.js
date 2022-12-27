@@ -1,4 +1,4 @@
-import PS from './pubsub'
+import PS from './PS'
 
 (function () {
 
