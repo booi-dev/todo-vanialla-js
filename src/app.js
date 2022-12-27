@@ -45,8 +45,8 @@ function app() {
         let id = titleEl.dataset.id;
         console.log(id)
 
-        PS.trigger('delTodo', id)
-        PS.trigger('removeEntry', id)
+        PS.trigger('delTodo', +id)
+        PS.trigger('removeEntry', +id)
     }
 
     let delBtns = DOM.findAttAll('[data-del]')
