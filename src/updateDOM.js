@@ -12,6 +12,12 @@ import PS from './PS'
         })
     }
 
+    let addEntry = function (el) {
+        let itemsDiv = DOM.findAtt('[data-todo-items]')
+        let existingEl = DOM.findAtt('[data-item]')
+        itemsDiv.insertBefore(el, existingEl)
+    }
+
     let createEntryTitle = function ({ id, title, group }) {
         // console.log(id)
 
@@ -33,13 +39,9 @@ import PS from './PS'
 
         titleEl.append(inGroup, isCheck, disTitle, delBtn)
 
-        return titleEl;
-    }
+        addEntry(titleEl)
 
-    let addEntry = function (el) {
-        let itemsDiv = DOM.findAtt('[data-todo-items]')
-        let existingEl = DOM.findAtt('[data-item]')
-        itemsDiv.insertBefore(el, existingEl)
+        return titleEl;
     }
 
     let removeEntry = function (id) {

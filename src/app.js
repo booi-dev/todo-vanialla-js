@@ -8,11 +8,6 @@ function app() {
 
     PS.trigger('renderEntries')
 
-    // let createAndAddTitleEntry = function (item) {
-    //     let titleEl = PS.trigger('createEntryTitle', item)
-    //     PS.trigger('addEntry', titleEl)
-    // }
-
     let inputFocusHandler = function (params) {
         PS.trigger('updatePlaceHolderFocus')
     }
@@ -26,8 +21,8 @@ function app() {
         if (e.key === "Enter") {
             e.preventDefault();
             let todo = PS.trigger('createTodo', item)
-            let titleEl = PS.trigger('createEntryTitle', todo)
-            PS.trigger('addEntry', titleEl)
+            PS.trigger('createEntryTitle', todo)
+
             itemInput.value = ''
             inputFocusHandler()
         }
