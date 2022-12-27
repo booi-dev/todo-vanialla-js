@@ -35,7 +35,7 @@ import PS from './pubsub'
         }
     ]
 
-    function returnDatalist(params) {
+    function returnDatalist() {
         return todolist;
     }
 

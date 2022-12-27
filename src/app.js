@@ -33,12 +33,12 @@ function app() {
         if (e.key === "Enter") {
             e.preventDefault();
             // create new todo 
-            let newEntry = PS.trigger('createEntry', itemInput.value)
+            let newEntry = PS.trigger('createEntry', { title: itemInput.value })
             let neweEntryItemEl = createTodoTitleEl(newEntry)
             addTodoEl(neweEntryItemEl)
 
             itemInput.value = '';
-            updateInputPlaceholder()
+            updatePlaceholderFocus()
         }
     }
 
@@ -51,7 +51,7 @@ function app() {
     }
 
     // get todolist from todoData module using pubsub
-    let todolist = PS.trigger('getTodoDataList', '')
+    let todolist = PS.trigger('getTodoDataList', {})
 
     todolist.forEach(list => {
         let listEl = createTodoTitleEl(list)

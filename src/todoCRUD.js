@@ -3,7 +3,7 @@ import PS from './pubsub'
 (function () {
     let todolist = [];
 
-    function createItem(title) {
+    function createItem({ title }) {
         let itemId = todolist.length + 1;
         return {
             id: itemId,
@@ -19,7 +19,7 @@ import PS from './pubsub'
     function updateItem(id, title, note, dueDate, priority, check) {
         //need more
         id: id;
-        title: item;
+        title: title;
         note: note;
         dueDate: dueDate;
         priority: priority;

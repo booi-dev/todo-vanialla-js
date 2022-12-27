@@ -16,15 +16,14 @@ let pubsub = (function () {
         }
     }
 
-    function trigger(eventName, data) {
+    function trigger(eventName, args) {
         if (!events[eventName]) return
         let obj
         events[eventName].forEach((fn) => {
-            obj = fn(data)
+            obj = fn(args)
         })
         return obj
     }
-
     return { sub, unsub, trigger }
 
 })()

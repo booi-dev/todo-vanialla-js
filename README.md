@@ -23,3 +23,5 @@ update
 read
 
 ...
+
+add newly created item to the todoData as well... after the DOM is updated.
