@@ -35,10 +35,16 @@ import PS from './pubsub'
         }
     ]
 
-    function returnDatalist() {
+    let addTodo = function (todo) {
+        todolist.push(todo)
+        console.log(todolist)
+    }
+
+    function returnTodo() {
         return todolist;
     }
 
-    PS.sub('getTodoDataList', returnDatalist)
+    PS.sub('addTodo', addTodo)
+    PS.sub('getTodo', returnTodo)
 
 })()

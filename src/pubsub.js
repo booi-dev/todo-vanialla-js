@@ -24,6 +24,7 @@ let pubsub = (function () {
         })
         return obj
     }
+
     return { sub, unsub, trigger }
 
 })()
