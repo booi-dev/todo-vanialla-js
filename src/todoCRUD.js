@@ -2,6 +2,8 @@ import PS from './PS'
 
 (function () {
 
+    // console.log("todo CRUD")
+
     let todolist = [
 
         {
@@ -39,10 +41,10 @@ import PS from './PS'
         return todolist;
     }
 
-    // let addTodo = function (todo) {
-    //     todolist.push(todo)
-    //     console.log(todolist)
-    // }
+    let addTodo = function (todo) {
+        todolist.push(todo)
+        console.log(todolist)
+    }
 
     function createTodo({ title }) {
         let itemId = todolist.length + 1;
@@ -55,8 +57,7 @@ import PS from './PS'
             group: "white tiger",
             check: false
         }
-        todolist.push(newTodo)
-        console.log(todolist)
+        addTodo(newTodo)
         return newTodo
     }
 

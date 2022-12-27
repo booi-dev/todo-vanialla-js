@@ -1,53 +1,18 @@
 import PS from './PS'
-import DOM from './DOMcache'
+import DOM from './DOMquery'
 import './todoCRUD'
 import './updateDOM'
+import eventBinder from './eventBinder'
 
 function app() {
-    // let todolist = PS.trigger('getTodo', {})
-
     PS.trigger('renderEntries')
+    eventBinder()
 
-    let inputFocusHandler = function (params) {
-        PS.trigger('updatePlaceHolderFocus')
-    }
+    // let delBtns = DOM.findAttAll('[data-del]')
+    // delBtns.forEach((btn) => {
+    //     console.log(btn)
+    // })
 
-    let inputBlurHandler = function (params) {
-        PS.trigger('updatePlaceHolderBlur')
-    }
-
-    let inputEnterhandler = function (e) {
-        let item = { title: itemInput.value }
-        if (e.key === "Enter") {
-            e.preventDefault();
-            let todo = PS.trigger('createTodo', item)
-            PS.trigger('createEntryTitle', todo)
-
-            itemInput.value = ''
-            inputFocusHandler()
-        }
-    }
-
-    let itemInput = DOM.findAtt('[data-item-input]')
-    itemInput.addEventListener('focus', inputFocusHandler)
-    itemInput.addEventListener('blur', inputBlurHandler)
-    itemInput.addEventListener('keypress', inputEnterhandler)
-
-    let delBtnEventHandler = function (e) {
-
-        let titleEl = e.target.parentElement;
-        console.log(titleEl)
-        let id = titleEl.dataset.id;
-        console.log(id)
-
-        PS.trigger('delTodo', +id)
-        PS.trigger('removeEntry', +id)
-    }
-
-    let delBtns = DOM.findAttAll('[data-del]')
-    delBtns.forEach((btn) => {
-        btn.addEventListener('click', delBtnEventHandler)
-    })
 
 }
 

@@ -1,7 +1,9 @@
-import DOM from './DOMcache'
+import DOM from './DOMquery'
 import PS from './PS'
 
 (function updateDOM() {
+
+    console.log("update DOM")
 
     let todolist = PS.trigger('getTodolist', 'nothing')
 
@@ -29,8 +31,11 @@ import PS from './PS'
 
         titleEl.setAttribute('data-item', '')
         titleEl.setAttribute('data-id', id)
-
         delBtn.setAttribute('data-del', '')
+
+        titleEl.classList.add('titleEL')
+        disTitle.classList.add('title')
+
 
         isCheck.textContent = 'o_o';
         inGroup.textContent = group;

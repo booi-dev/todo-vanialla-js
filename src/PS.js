@@ -1,4 +1,6 @@
 let PS = (function () {
+    // console.log("PS run")
+
     let events = {}
 
     function sub(eventName, fn) {
