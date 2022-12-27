@@ -9,15 +9,19 @@ import PS from './PS'
         let inGroup = DOM.createEl('div')
         let isCheck = DOM.createEl('button')
         let disTitle = DOM.createEl('div')
+        let delBtn = DOM.createEl('button')
 
         titleEl.setAttribute('data-item', '')
         titleEl.setAttribute('data-id', id)
 
+        delBtn.setAttribute('data-del', '')
+
         isCheck.textContent = 'o_o';
         inGroup.textContent = group;
         disTitle.textContent = title;
+        delBtn.textContent = 'DD'
 
-        titleEl.append(inGroup, isCheck, disTitle)
+        titleEl.append(inGroup, isCheck, disTitle, delBtn)
 
         return titleEl;
     }
@@ -37,8 +41,6 @@ import PS from './PS'
         let itemInput = DOM.findAtt('data-item-input')
         itemInput.placeholder = '+ add task'
     }
-
-
 
     PS.sub('createEntryTitle', createEntryTitle)
     PS.sub('addEntry', addEntry)

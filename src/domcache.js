@@ -16,7 +16,7 @@ let domcache = (function () {
         return document.querySelector(`[${params}]`)
     }
 
-    function findDataAll(params) {
+    function findAttAll(params) {
         return document.querySelectorAll(`[${params}]`)
     }
 
@@ -25,7 +25,7 @@ let domcache = (function () {
         return document.createElement(element)
     }
 
-    return { findClass, findClassAll, findId, findAtt, findDataAll, createEl }
+    return { findClass, findClassAll, findId, findAtt, findAttAll, createEl }
 })()
 
 export default domcache;

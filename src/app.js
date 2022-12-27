@@ -1,11 +1,9 @@
 import DOM from './DOMcache'
 import PS from './PS'
-import './todoData'
 import './updateDOM'
 import './todoCRUD'
 
 function app() {
-
     let todolist = PS.trigger('getTodo', {})
 
     let createAndAddTitleEntry = function (item) {
@@ -40,6 +38,16 @@ function app() {
     itemInput.addEventListener('focus', inputFocusHandler)
     itemInput.addEventListener('blur', inputBlurHandler)
     itemInput.addEventListener('keypress', inputEnterhandler)
+
+    let delBtnEventHandler = function (params) {
+        console.log("del is clicked")
+    }
+
+    let delBtns = DOM.findAttAll('data-del')
+    delBtns.forEach((btn) => {
+        btn.addEventListener('click', delBtnEventHandler)
+    })
+
 }
 
 export default app;
