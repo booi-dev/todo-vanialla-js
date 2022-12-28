@@ -1,5 +1,6 @@
 import DOM from './DOMquery'
 import PS from './PS'
+import eventBinder from './eventBinder'
 
 (function updateDOM() {
 
@@ -48,8 +49,7 @@ import PS from './PS'
     // DISPLAY one entry
 
     let displayEntry = function (todo) {
-        console.log("displaying entry", todo)
-        let entryEl = DOM.createEl('div')
+        let entryViewEl = DOM.createEl('div')
         let headerEl = DOM.createEl('div')
         let inGroupEl = DOM.createEl('div')
         let isCheckEl = DOM.createEl('button')
@@ -61,8 +61,24 @@ import PS from './PS'
         let priorityEl = DOM.createEl('div')
         let noteEl = DOM.createEl('p')
 
+        entryViewEl.classList.add('entry-view--el')
+        headerEl.classList.add('header')
+        inGroupEl.classList.add('group')
+        isCheckEl.classList.add('check--status')
+        delBtnEl.classList.add('del--btn')
+        closeEl.classList.add('close-view--btn')
+
+        titleEl.classList.add('title')
+        btnsPanel.classList.add('btns-panel')
+        dueDateEl.classList.add('due-date')
+        priorityEl.classList.add('priority')
+        noteEl.classList.add('note')
+
         inGroupEl.textContent = todo.group;
         isCheckEl.textContent = todo.check;
+        delBtnEl.textContent = 'delete'
+        closeEl.textContent = 'x'
+
         titleEl.textContent = todo.title
         dueDateEl.textContent = todo.dueDate
         priorityEl.textContent = todo.priority
@@ -70,10 +86,13 @@ import PS from './PS'
 
         headerEl.append(inGroupEl, isCheckEl, delBtnEl, closeEl)
         btnsPanel.append(dueDateEl, priorityEl)
-        entryEl.append(headerEl, titleEl, btnsPanel, noteEl)
+        entryViewEl.append(headerEl, titleEl, btnsPanel, noteEl)
 
-        let entryDiv = DOM.findAtt('[data-todo-items]')
-        entryDiv.append(entryEl)
+        let entryViewContainer = DOM.find('[data-entry-view]')
+        // entryViewContainer.append(entryViewEl)
+        entryViewContainer.replaceChildren(entryViewEl)
+
+        PS.trigger('closeViewEventBinding')
     }
 
     // REMOVE entry DOM

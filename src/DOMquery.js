@@ -9,11 +9,10 @@ let domQuery = (function () {
     }
 
     function findId(params) {
-        return document.querySelector(`${params}`)
+        return document.getElementById(`${params}`)
     }
 
     function findAtt(params) {
-        // console.log(params)
         return document.querySelector(`${params}`)
     }
 

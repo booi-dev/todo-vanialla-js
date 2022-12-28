@@ -44,7 +44,6 @@ let eventBinder = function () {
         title.addEventListener('click', titleClickEventHandler)
     })
 
-
     // del btn event binding / DELETE todo
     let delBtnEventHandler = function (e) {
 
@@ -60,7 +59,20 @@ let eventBinder = function () {
         btn.addEventListener('click', delBtnEventHandler)
     })
 
+    // CLOSE btn event binding / CLOSE todo view
+    let entryViewContainer = DOM.find('[data-entry-view]')
 
+    function closeViewEventBinding() {
+        let closeBtnEventHandler = function (e) {
+            let entryViewEl = e.target.parentElement.parentElement;
+            entryViewEl.remove()
+        }
+
+        let viewCloseBtn = DOM.find('.close-view--btn')
+        viewCloseBtn.addEventListener('click', closeBtnEventHandler)
+    }
+
+    PS.sub("closeViewEventBinding", closeViewEventBinding)
 }
 
 export default eventBinder;
