@@ -4,6 +4,7 @@ import PS from './PS'
 (function todoEntry() {
 
     let addEntry = function (el) {
+        // console.log('and entry')
         let titleEntryDiv = DOM.findAtt('[data-todo-items]')
         titleEntryDiv.prepend(el)
     }
@@ -28,7 +29,7 @@ import PS from './PS'
         PS.trigger('removeEntry', +id)
     }
 
-    let createEntryTitle = function ({ id, title, group }) {
+    let createEntryTodo = function ({ id, title, group }) {
         let titleEntry = DOM.createEl('div')
         let inGroup = DOM.createEl('div')
         let isCheck = DOM.createEl('button')
@@ -56,7 +57,7 @@ import PS from './PS'
         return titleEntry;
     }
 
-    PS.sub('createEntryTitle', createEntryTitle)
+    PS.sub('createEntryTodo', createEntryTodo)
     PS.sub('addEntry', addEntry)
     PS.sub('removeEntry', removeEntry)
 

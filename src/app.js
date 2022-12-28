@@ -1,4 +1,4 @@
-import './todoCRUD'
+import './todoList'
 import './updateDOM'
 import "./todoEntry";
 import './todoEntryView'

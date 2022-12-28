@@ -3,7 +3,8 @@ import DOM from './DOMquery'
 
 let eventBinder = function () {
 
-    // input title event binding / CREATE todo
+    let inputField = DOM.find('[data-item-input]')
+
     let inputFocusHandler = function () {
         PS.trigger('updatePlaceHolderFocus')
     }
@@ -12,22 +13,21 @@ let eventBinder = function () {
         PS.trigger('updatePlaceHolderBlur')
     }
 
-    let inputEnterhandler = function (e) {
-        let item = { title: itemInput.value }
+    let entryInputhandler = function (e) {
+        let item = { title: inputField.value }
         if (e.key === "Enter") {
             e.preventDefault();
             let todo = PS.trigger('createTodo', item)
-            PS.trigger('createEntryTitle', todo)
+            PS.trigger('createEntryTodo', todo)
 
-            itemInput.value = ''
+            inputField.value = ''
             inputFocusHandler()
         }
     }
 
-    let itemInput = DOM.find('[data-item-input]')
-    itemInput.addEventListener('focus', inputFocusHandler)
-    itemInput.addEventListener('blur', inputBlurHandler)
-    itemInput.addEventListener('keypress', inputEnterhandler)
+    inputField.addEventListener('focus', inputFocusHandler)
+    inputField.addEventListener('blur', inputBlurHandler)
+    inputField.addEventListener('keypress', entryInputhandler)
 }
 
 export default eventBinder;
