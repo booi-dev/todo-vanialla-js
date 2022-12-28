@@ -59,14 +59,13 @@ import PS from './PS'
         return newTodo
     }
 
-    function updateTodo(id, title, note, dueDate, priority, check) {
-        //need more
-        id: id;
-        title: title;
-        note: note;
-        dueDate: dueDate;
-        priority: priority;
-        check: check
+    function updateTodo(todo) {
+        for (let i = 0; i < todolist.length; i++) {
+            if (todolist[i].id === todo.id) {
+                todolist[i] = todo;
+                console.log(todolist[i])
+            }
+        }
     }
 
     function readTodo(id) {
@@ -82,16 +81,15 @@ import PS from './PS'
             if (todolist[i].id === id) {
                 todolist.splice(i, 1)
             }
+            console.log(todolist)
         }
-        console.log(todolist)
     }
 
-    // PS.sub('addTodo', addTodo)
+    PS.sub('addTodo', addTodo)
     PS.sub('getTodolist', returnTodo)
-
     PS.sub('createTodo', createTodo)
     PS.sub('updateTodo', updateTodo)
     PS.sub('readTodo', readTodo)
     PS.sub('delTodo', delTodo)
-})()
 
+})()
