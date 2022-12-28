@@ -3,8 +3,6 @@ import PS from './PS'
 
 (function updateDOM() {
 
-    console.log("update DOM")
-
     let todolist = PS.trigger('getTodolist', 'nothing')
 
     let renderEntries = function () {
@@ -14,15 +12,14 @@ import PS from './PS'
         })
     }
 
+    // ADD one entry DOM
     let addEntry = function (el) {
-        let itemsDiv = DOM.find('[data-todo-items]')
-        let existingEl = DOM.find('[data-item]')
+        let itemsDiv = DOM.findAtt('[data-todo-items]')
+        let existingEl = DOM.findAtt('[data-item]')
         itemsDiv.insertBefore(el, existingEl)
     }
 
     let createEntryTitle = function ({ id, title, group }) {
-        // console.log(id)
-
         let titleEl = DOM.createEl('div')
         let inGroup = DOM.createEl('div')
         let isCheck = DOM.createEl('button')
@@ -36,7 +33,6 @@ import PS from './PS'
         titleEl.classList.add('titleEL')
         disTitle.classList.add('title')
 
-
         isCheck.textContent = 'o_o';
         inGroup.textContent = group;
         disTitle.textContent = title;
@@ -49,18 +45,50 @@ import PS from './PS'
         return titleEl;
     }
 
+    // DISPLAY one entry
+
+    let displayEntry = function (todo) {
+        console.log("displaying entry", todo)
+        let entryEl = DOM.createEl('div')
+        let headerEl = DOM.createEl('div')
+        let inGroupEl = DOM.createEl('div')
+        let isCheckEl = DOM.createEl('button')
+        let delBtnEl = DOM.createEl('button')
+        let closeEl = DOM.createEl('button')
+        let titleEl = DOM.createEl('h1')
+        let btnsPanel = DOM.createEl('div')
+        let dueDateEl = DOM.createEl('div')
+        let priorityEl = DOM.createEl('div')
+        let noteEl = DOM.createEl('p')
+
+        inGroupEl.textContent = todo.group;
+        isCheckEl.textContent = todo.check;
+        titleEl.textContent = todo.title
+        dueDateEl.textContent = todo.dueDate
+        priorityEl.textContent = todo.priority
+        noteEl.textContent = todo.note
+
+        headerEl.append(inGroupEl, isCheckEl, delBtnEl, closeEl)
+        btnsPanel.append(dueDateEl, priorityEl)
+        entryEl.append(headerEl, titleEl, btnsPanel, noteEl)
+
+        let entryDiv = DOM.findAtt('[data-todo-items]')
+        entryDiv.append(entryEl)
+    }
+
+    // REMOVE entry DOM
     let removeEntry = function (id) {
-        let getTargetEntry = DOM.find(`[data-item][data-id='${id}']`)
+        let getTargetEntry = DOM.findAtt(`[data-item][data-id='${id}']`)
         getTargetEntry.remove()
     }
 
     let updatePlaceHolderFocus = function () {
-        let itemInput = DOM.find('[data-item-input]')
+        let itemInput = DOM.findAtt('[data-item-input]')
         itemInput.placeholder = ' enter task title'
     }
 
     let updatePlaceHolderBlur = function () {
-        let itemInput = DOM.find('[data-item-input]')
+        let itemInput = DOM.findAtt('[data-item-input]')
         itemInput.placeholder = '+ add task'
     }
 
@@ -68,6 +96,7 @@ import PS from './PS'
 
     PS.sub('createEntryTitle', createEntryTitle)
     PS.sub('addEntry', addEntry)
+    PS.sub('displayEntry', displayEntry)
     PS.sub('removeEntry', removeEntry)
     PS.sub('updatePlaceHolderFocus', updatePlaceHolderFocus)
     PS.sub('updatePlaceHolderBlur', updatePlaceHolderBlur)

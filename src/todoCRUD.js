@@ -2,8 +2,6 @@ import PS from './PS'
 
 (function () {
 
-    // console.log("todo CRUD")
-
     let todolist = [
 
         {
@@ -72,15 +70,16 @@ import PS from './PS'
     }
 
     function readTodo(id) {
-        todolist.find((item) => {
-            return item.id === id;
-        })
+        for (let i = 0; i < todolist.length; i++) {
+            if (todolist[i].id === id) {
+                return todolist[i]
+            }
+        }
     }
 
     function delTodo(id) {
         for (let i = 0; i < todolist.length; i++) {
             if (todolist[i].id === id) {
-                console.log("match")
                 todolist.splice(i, 1)
             }
         }
@@ -94,6 +93,5 @@ import PS from './PS'
     PS.sub('updateTodo', updateTodo)
     PS.sub('readTodo', readTodo)
     PS.sub('delTodo', delTodo)
-
 })()
 

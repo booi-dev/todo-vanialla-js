@@ -1,8 +1,7 @@
 import PS from './PS'
 import DOM from './DOMquery'
 
-function eventBinder() {
-    console.log("event binding")
+let eventBinder = function () {
 
     // input title event binding / CREATE todo
     let inputFocusHandler = function () {
@@ -30,6 +29,21 @@ function eventBinder() {
     itemInput.addEventListener('blur', inputBlurHandler)
     itemInput.addEventListener('keypress', inputEnterhandler)
 
+    // read event binding / READ todo
+
+    let titleClickEventHandler = function (e) {
+        let titleEl = e.target.parentElement;
+        let id = titleEl.dataset.id;
+
+        let todo = PS.trigger("readTodo", +id)
+        PS.trigger("displayEntry", todo)
+    }
+
+    let titles = DOM.findAll(".title")
+    titles.forEach((title) => {
+        title.addEventListener('click', titleClickEventHandler)
+    })
+
 
     // del btn event binding / DELETE todo
     let delBtnEventHandler = function (e) {
@@ -46,16 +60,6 @@ function eventBinder() {
         btn.addEventListener('click', delBtnEventHandler)
     })
 
-    // read event binding / READ todo
-
-    let titleClickEventHandler = function (params) {
-        console.log('title clicked')
-    }
-
-    let titles = DOM.findAll(".title")
-    titles.forEach((title) => {
-        title.addEventListener('click', titleClickEventHandler)
-    })
 
 }
 

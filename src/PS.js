@@ -1,5 +1,4 @@
 let PS = (function () {
-    // console.log("PS run")
 
     let events = {}
 
