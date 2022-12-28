@@ -64,16 +64,17 @@ import PS from './PS'
         return titleEntry;
     }
 
-    let updateEntry = function (todo) {
-        // let targetEntry = DOM.find(`[data-item][data-id='${todo.id}']`)
-        // let targetTitle = DOM.findId(`title-${todo.id}`)
-        // let targetGroup = DOM.findId(`group-${todo.id}`)
-        // let targetCheck = DOM.findId(`check-${todo.id}`)
-        // let targetDueDate = DOM.findId(`due-date-${todo.id}`)
-        // targetTitle.innerText = todo.title;
-        // targetGroup.innerText = todo.group;
-        // targetCheck.innerText = todo.check;
-        // console.log(targetTitle)
+    // let targetEntry = DOM.find(`[data-item][data-id='${todo.id}']`)
+    // let targetTitle = DOM.findId(`title-${todo.id}`)
+    // let targetGroup = DOM.findId(`group-${todo.id}`)
+    // let targetCheck = DOM.findId(`check-${todo.id}`)
+    // let targetDueDate = DOM.findId(`due-date-${todo.id}`)
+    // targetTitle.innerText = todo.title;
+    // targetGroup.innerText = todo.group;
+    // targetCheck.innerText = todo.check;
+    // console.log(targetTitle)
+
+    let updateTodo = function (todo) {
         PS.trigger('updateTodo', todo)
 
     }
@@ -107,7 +108,12 @@ import PS from './PS'
 
         let titleInputListener = function (e) {
             let updatedTodo = { ...todo, title: e.target.value }
-            updateEntry(updatedTodo)
+            updateTodo(updatedTodo)
+        }
+
+        let noteInputListener = function (e) {
+            let updatedTodo = { ...todo, note: e.target.value }
+            updateTodo(updatedTodo)
         }
 
         let closeBtnEventHandler = function (e) {
@@ -126,6 +132,7 @@ import PS from './PS'
         noteEl.value = todo.note
 
         titleEl.addEventListener('change', titleInputListener)
+        noteEl.addEventListener('change', noteInputListener)
 
         headerEl.append(inGroupEl, isCheckEl, delBtnEl, closeEl)
         btnsPanel.append(dueDateEl, priorityEl)

@@ -19,9 +19,13 @@ seperate module for updating DOM / Creating DOM. DONE
 ...
 
 add delete functionality: DONE
-update
-read: READ
+update: DO
+read: DONE
 
 ...
 
 add newly created item to the todoData as well... after the DOM is updated. DONE
+
+...
+
+local storage
