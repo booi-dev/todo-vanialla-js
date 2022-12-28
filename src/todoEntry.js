@@ -3,18 +3,7 @@ import PS from './PS'
 
 (function todoEntry() {
 
-    let addEntry = function (el) {
-        // console.log('and entry')
-        let titleEntryDiv = DOM.findAtt('[data-todo-items]')
-        titleEntryDiv.prepend(el)
-    }
-
-    let removeEntry = function (id) {
-        let getTargetEntry = DOM.find(`[data-item][data-id='${id}']`)
-        getTargetEntry.remove()
-    }
-
-    let createEntryTodo = function ({ id, title, group }) {
+    function createEntryTodo({ id, title, group }) {
         let titleEntry = DOM.createEl('div')
         let inGroup = DOM.createEl('div')
         let isCheck = DOM.createEl('button')
@@ -47,7 +36,7 @@ import PS from './PS'
             let titleEl = e.target.parentElement;
             let id = titleEl.dataset.id;
             let todo = PS.trigger("readTodo", +id)
-            PS.trigger("displayEntry", todo)
+            viewEntry(todo)
         }
 
         isCheck.textContent = 'o_o';
@@ -64,6 +53,12 @@ import PS from './PS'
         return titleEntry;
     }
 
+    function addEntry(el) {
+        // console.log('and entry')
+        let titleEntryDiv = DOM.findAtt('[data-todo-items]')
+        titleEntryDiv.prepend(el)
+    }
+
     // let targetEntry = DOM.find(`[data-item][data-id='${todo.id}']`)
     // let targetTitle = DOM.findId(`title-${todo.id}`)
     // let targetGroup = DOM.findId(`group-${todo.id}`)
@@ -74,12 +69,7 @@ import PS from './PS'
     // targetCheck.innerText = todo.check;
     // console.log(targetTitle)
 
-    let updateTodo = function (todo) {
-        PS.trigger('updateTodo', todo)
-
-    }
-
-    let displayEntry = function (todo) {
+    function viewEntry(todo) {
 
         let entryViewEl = DOM.createEl('div')
         let headerEl = DOM.createEl('div')
@@ -93,18 +83,20 @@ import PS from './PS'
         let priorityEl = DOM.createEl('div')
         let noteEl = DOM.createEl('textarea')
 
-        entryViewEl.classList.add('entry-view--el')
+        entryViewEl.setAttribute('data-entry-id', todo.id)
+
+        entryViewEl.classList.add('entry-el--view')
         headerEl.classList.add('header--view')
-        inGroupEl.classList.add('group--ciew')
+        inGroupEl.classList.add('group--view')
         isCheckEl.classList.add('check-status--vier')
         delBtnEl.classList.add('del-btn--view')
         closeEl.classList.add('close-view-btn--view')
 
-        titleEl.classList.add('title')
-        btnsPanel.classList.add('btns-panel')
-        dueDateEl.classList.add('due-date')
-        priorityEl.classList.add('priority')
-        noteEl.classList.add('note')
+        titleEl.classList.add('title--view')
+        btnsPanel.classList.add('btns-panel--view')
+        dueDateEl.classList.add('due-date--view')
+        priorityEl.classList.add('priority--view')
+        noteEl.classList.add('note--view')
 
         let titleInputListener = function (e) {
             let updatedTodo = { ...todo, title: e.target.value }
@@ -114,6 +106,13 @@ import PS from './PS'
         let noteInputListener = function (e) {
             let updatedTodo = { ...todo, note: e.target.value }
             updateTodo(updatedTodo)
+        }
+
+        let delBtnListener = function (e) {
+            let entryViewEl = e.target.parentElement.parentElement
+            let id = entryViewEl.dataset.entryId
+            removeEntry(+id)
+            PS.trigger('delTodo', +id)
         }
 
         let closeBtnEventHandler = function (e) {
@@ -133,21 +132,31 @@ import PS from './PS'
 
         titleEl.addEventListener('change', titleInputListener)
         noteEl.addEventListener('change', noteInputListener)
+        delBtnEl.addEventListener('click', delBtnListener)
+        closeEl.addEventListener('click', closeBtnEventHandler)
 
         headerEl.append(inGroupEl, isCheckEl, delBtnEl, closeEl)
         btnsPanel.append(dueDateEl, priorityEl)
-        entryViewEl.append(headerEl, titleEl, btnsPanel, noteEl)
 
-        closeEl.addEventListener('click', closeBtnEventHandler)
+        entryViewEl.append(headerEl, titleEl, btnsPanel, noteEl)
 
         let entryViewContainer = DOM.find('[data-entry-view]')
         entryViewContainer.replaceChildren(entryViewEl)
     }
 
+    function updateTodo(todo) {
+        PS.trigger('updateTodo', todo)
+    }
+
+    function removeEntry(id) {
+        let getTargetEntry = DOM.find(`[data-item][data-id='${id}']`)
+        getTargetEntry.remove()
+    }
+
     PS.sub('createEntryTodo', createEntryTodo)
     PS.sub('addEntry', addEntry)
     PS.sub('removeEntry', removeEntry)
-    PS.sub('displayEntry', displayEntry)
+    PS.sub('viewEntry', viewEntry)
     // PS.sub('updateEntry', updateEntry)
 
 })()
