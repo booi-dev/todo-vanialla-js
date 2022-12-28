@@ -13,40 +13,67 @@ import eventBinder from './eventBinder'
         })
     }
 
+    // event binder
+
     // ADD one entry DOM
     let addEntry = function (el) {
-        let itemsDiv = DOM.findAtt('[data-todo-items]')
-        let existingEl = DOM.findAtt('[data-item]')
-        itemsDiv.insertBefore(el, existingEl)
+        let titleEntryDiv = DOM.findAtt('[data-todo-items]')
+        titleEntryDiv.prepend(el)
+    }
+
+    let delBtnEventHandler = function (e) {
+        let titleEl = e.target.parentElement;
+        let id = titleEl.dataset.id;
+        PS.trigger('delTodo', +id)
+        PS.trigger('removeEntry', +id)
+    }
+
+    let titleClickEventHandler = function (e) {
+        let titleEl = e.target.parentElement;
+        let id = titleEl.dataset.id;
+
+        let todo = PS.trigger("readTodo", +id)
+        PS.trigger("displayEntry", todo)
     }
 
     let createEntryTitle = function ({ id, title, group }) {
-        let titleEl = DOM.createEl('div')
+        let titleEntry = DOM.createEl('div')
         let inGroup = DOM.createEl('div')
         let isCheck = DOM.createEl('button')
-        let disTitle = DOM.createEl('div')
+        let titleEl = DOM.createEl('div')
         let delBtn = DOM.createEl('button')
 
-        titleEl.setAttribute('data-item', '')
-        titleEl.setAttribute('data-id', id)
+        titleEntry.setAttribute('data-item', '')
+        titleEntry.setAttribute('data-id', id)
         delBtn.setAttribute('data-del', '')
 
-        titleEl.classList.add('titleEL')
-        disTitle.classList.add('title')
+        titleEntry.classList.add('titleEL')
+        titleEl.classList.add('title')
 
         isCheck.textContent = 'o_o';
         inGroup.textContent = group;
-        disTitle.textContent = title;
+        titleEl.textContent = title;
         delBtn.textContent = 'DD'
 
-        titleEl.append(inGroup, isCheck, disTitle, delBtn)
+        delBtn.addEventListener('click', delBtnEventHandler)
+        titleEl.addEventListener('click', titleClickEventHandler)
 
-        addEntry(titleEl)
+        titleEntry.append(inGroup, delBtn, isCheck, titleEl)
+        addEntry(titleEntry)
 
-        return titleEl;
+        // PS.trigger('delBtnEventBinding')
+
+        return titleEntry;
     }
 
     // DISPLAY one entry
+
+
+    let closeBtnEventHandler = function (e) {
+        let entryViewEl = e.target.parentElement.parentElement;
+        entryViewEl.remove()
+    }
+
 
     let displayEntry = function (todo) {
         let entryViewEl = DOM.createEl('div')
@@ -88,16 +115,16 @@ import eventBinder from './eventBinder'
         btnsPanel.append(dueDateEl, priorityEl)
         entryViewEl.append(headerEl, titleEl, btnsPanel, noteEl)
 
+        closeEl.addEventListener('click', closeBtnEventHandler)
+
         let entryViewContainer = DOM.find('[data-entry-view]')
-        // entryViewContainer.append(entryViewEl)
         entryViewContainer.replaceChildren(entryViewEl)
 
-        PS.trigger('closeViewEventBinding')
     }
 
     // REMOVE entry DOM
     let removeEntry = function (id) {
-        let getTargetEntry = DOM.findAtt(`[data-item][data-id='${id}']`)
+        let getTargetEntry = DOM.find(`[data-item][data-id='${id}']`)
         getTargetEntry.remove()
     }
 

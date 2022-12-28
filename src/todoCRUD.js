@@ -51,7 +51,7 @@ import PS from './PS'
             title: title,
             note: "",
             dueDate: "",
-            priority: "",
+            priority: "low",
             group: "white tiger",
             check: false
         }
