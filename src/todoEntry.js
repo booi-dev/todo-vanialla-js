@@ -57,6 +57,10 @@ import PS from './PS'
         return titleEntry;
     }
 
+    let updateEntry = function (todo) {
+
+    }
+
     PS.sub('createEntryTodo', createEntryTodo)
     PS.sub('addEntry', addEntry)
     PS.sub('removeEntry', removeEntry)
