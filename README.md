@@ -20,7 +20,7 @@ seperate module for updating DOM / Creating DOM. DONE
 
 add delete functionality: DONE
 update
-read:
+read: READ
 
 ...
 

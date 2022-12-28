@@ -1,6 +1,5 @@
 import DOM from './DOMquery'
 import PS from './PS'
-import eventBinder from './eventBinder'
 
 (function updateDOM() {
 
@@ -63,60 +62,6 @@ import eventBinder from './eventBinder'
         return titleEntry;
     }
 
-    // DISPLAY one entry
-
-    let closeBtnEventHandler = function (e) {
-        let entryViewEl = e.target.parentElement.parentElement;
-        entryViewEl.remove()
-    }
-
-    let displayEntry = function (todo) {
-        let entryViewEl = DOM.createEl('div')
-        let headerEl = DOM.createEl('div')
-        let inGroupEl = DOM.createEl('div')
-        let isCheckEl = DOM.createEl('button')
-        let delBtnEl = DOM.createEl('button')
-        let closeEl = DOM.createEl('button')
-        let titleEl = DOM.createEl('input')
-        let btnsPanel = DOM.createEl('div')
-        let dueDateEl = DOM.createEl('div')
-        let priorityEl = DOM.createEl('div')
-        let noteEl = DOM.createEl('textarea')
-
-        entryViewEl.classList.add('entry-view--el')
-        headerEl.classList.add('header')
-        inGroupEl.classList.add('group')
-        isCheckEl.classList.add('check--status')
-        delBtnEl.classList.add('del--btn')
-        closeEl.classList.add('close-view--btn')
-
-        titleEl.classList.add('title')
-        btnsPanel.classList.add('btns-panel')
-        dueDateEl.classList.add('due-date')
-        priorityEl.classList.add('priority')
-        noteEl.classList.add('note')
-
-        inGroupEl.textContent = todo.group;
-        isCheckEl.textContent = todo.check;
-        delBtnEl.textContent = 'delete'
-        closeEl.textContent = 'x'
-
-        titleEl.value = todo.title
-        dueDateEl.textContent = todo.dueDate
-        priorityEl.textContent = todo.priority
-        noteEl.value = todo.note
-
-        headerEl.append(inGroupEl, isCheckEl, delBtnEl, closeEl)
-        btnsPanel.append(dueDateEl, priorityEl)
-        entryViewEl.append(headerEl, titleEl, btnsPanel, noteEl)
-
-        closeEl.addEventListener('click', closeBtnEventHandler)
-
-        let entryViewContainer = DOM.find('[data-entry-view]')
-        entryViewContainer.replaceChildren(entryViewEl)
-
-    }
-
     // REMOVE entry DOM
     let removeEntry = function (id) {
         let getTargetEntry = DOM.find(`[data-item][data-id='${id}']`)
@@ -137,7 +82,7 @@ import eventBinder from './eventBinder'
 
     PS.sub('createEntryTitle', createEntryTitle)
     PS.sub('addEntry', addEntry)
-    PS.sub('displayEntry', displayEntry)
+
     PS.sub('removeEntry', removeEntry)
     PS.sub('updatePlaceHolderFocus', updatePlaceHolderFocus)
     PS.sub('updatePlaceHolderBlur', updatePlaceHolderBlur)

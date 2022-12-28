@@ -1,5 +1,6 @@
 import './todoCRUD'
 import './updateDOM'
+import './todoView'
 import PS from './PS'
 import eventBinder from './eventBinder'
 
