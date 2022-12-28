@@ -28,7 +28,6 @@ let eventBinder = function () {
     itemInput.addEventListener('focus', inputFocusHandler)
     itemInput.addEventListener('blur', inputBlurHandler)
     itemInput.addEventListener('keypress', inputEnterhandler)
-
 }
 
 export default eventBinder;

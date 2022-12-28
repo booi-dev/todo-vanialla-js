@@ -15,7 +15,6 @@ import eventBinder from './eventBinder'
 
     // event binder
 
-    // ADD one entry DOM
     let addEntry = function (el) {
         let titleEntryDiv = DOM.findAtt('[data-todo-items]')
         titleEntryDiv.prepend(el)
@@ -61,19 +60,15 @@ import eventBinder from './eventBinder'
         titleEntry.append(inGroup, delBtn, isCheck, titleEl)
         addEntry(titleEntry)
 
-        // PS.trigger('delBtnEventBinding')
-
         return titleEntry;
     }
 
     // DISPLAY one entry
 
-
     let closeBtnEventHandler = function (e) {
         let entryViewEl = e.target.parentElement.parentElement;
         entryViewEl.remove()
     }
-
 
     let displayEntry = function (todo) {
         let entryViewEl = DOM.createEl('div')
@@ -82,11 +77,11 @@ import eventBinder from './eventBinder'
         let isCheckEl = DOM.createEl('button')
         let delBtnEl = DOM.createEl('button')
         let closeEl = DOM.createEl('button')
-        let titleEl = DOM.createEl('h1')
+        let titleEl = DOM.createEl('input')
         let btnsPanel = DOM.createEl('div')
         let dueDateEl = DOM.createEl('div')
         let priorityEl = DOM.createEl('div')
-        let noteEl = DOM.createEl('p')
+        let noteEl = DOM.createEl('textarea')
 
         entryViewEl.classList.add('entry-view--el')
         headerEl.classList.add('header')
@@ -106,10 +101,10 @@ import eventBinder from './eventBinder'
         delBtnEl.textContent = 'delete'
         closeEl.textContent = 'x'
 
-        titleEl.textContent = todo.title
+        titleEl.value = todo.title
         dueDateEl.textContent = todo.dueDate
         priorityEl.textContent = todo.priority
-        noteEl.textContent = todo.note
+        noteEl.value = todo.note
 
         headerEl.append(inGroupEl, isCheckEl, delBtnEl, closeEl)
         btnsPanel.append(dueDateEl, priorityEl)
