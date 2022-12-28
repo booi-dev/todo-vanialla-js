@@ -1,7 +1,7 @@
 import PS from './PS'
 import DOM from './DOMquery'
 
-(function todoView() {
+(function todoEntryView() {
 
     let closeBtnEventHandler = function (e) {
         let entryViewEl = e.target.parentElement.parentElement;
