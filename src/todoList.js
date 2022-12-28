@@ -63,7 +63,7 @@ import PS from './PS'
         for (let i = 0; i < todolist.length; i++) {
             if (todolist[i].id === todo.id) {
                 todolist[i] = todo;
-                console.log(todolist[i])
+                // console.log(todolist[i])
             }
         }
     }

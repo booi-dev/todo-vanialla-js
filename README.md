@@ -29,3 +29,8 @@ add newly created item to the todoData as well... after the DOM is updated. DONE
 ...
 
 local storage
+
+...
+
+check / uncheck : DONE
+state management : DONE
