@@ -1,7 +1,7 @@
 import PS from './PS'
 import DOM from './DOMquery'
 
-let eventBinder = function () {
+let inputEntry = function () {
 
     let inputField = DOM.find('[data-item-input]')
 
@@ -30,4 +30,4 @@ let eventBinder = function () {
     inputField.addEventListener('keypress', entryInputhandler)
 }
 
-export default eventBinder;
+export default inputEntry;

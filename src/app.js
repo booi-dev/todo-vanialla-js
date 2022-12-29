@@ -7,6 +7,7 @@ import "./todoEntryView";
 import PS from './PS'
 import inputEntry from './inputEntry'
 import DOM from './DOMquery'
+// import './app.css'
 
 function app() {
     let date = new Date()

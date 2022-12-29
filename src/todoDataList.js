@@ -13,7 +13,6 @@ import PS from './PS'
         let key = localStorage.key(i)
         let todo = localStorage.getItem(key)
         todolist.push(JSON.parse(todo))
-        console.log()
     }
 
     const returnTodo = function () {
@@ -37,7 +36,7 @@ import PS from './PS'
             note: "",
             dueDate: dateFormated,
             priority: "medium",
-            group: "white tiger",
+            group: "dragon",
             check: false
         }
         addTodo(newTodo)

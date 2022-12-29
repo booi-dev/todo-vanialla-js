@@ -3,7 +3,7 @@ import PS from './PS'
 
 (function updateDOM() {
 
-    let todolist = PS.trigger('getTodolist', 'nothing')
+    let todolist = PS.trigger('getTodolist', '')
 
     let renderEntries = function () {
         todolist.forEach(list => {

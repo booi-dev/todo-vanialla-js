@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-color: #000;
+
+  --card-bg-1-color: #161616;
+  --card-bg-2-color: #252525;
+  --card-bg-3-color: #424242;
+  --card-bg-4-color: #1c1c1c;
+
+  --color-1: #8e8e92;
+  --color-2: #8e8e92;
+  --color-3: #8e8e92;
+
+  --color-text-1: #e4e4e4;
+  --color-text-2: #a2a2a2;
+  --color-text-3: #777;
+  --color-text-4: #777;
+
+  --size-font-1: 1.2rem;
+  --size-font-2: 1.5rem;
+  --size-font-3: 2rem;
+  --size-font-4: 2.5rem;
+}
+
+body {
+  background-color: var(--card-bg-1-color);
+  color: var(--color-text-1);
+  font-size: var(--size-font-1);
+  padding: 4em;
+}

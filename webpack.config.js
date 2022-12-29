@@ -7,9 +7,6 @@ module.exports = {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
     },
-    devServer: {
-        static: './dist',
-    },
     module: {
         rules: [
             {
@@ -17,5 +14,8 @@ module.exports = {
                 use: ['style-loader', 'css-loader'],
             },
         ],
+    },
+    devServer: {
+        static: './dist',
     },
 };
