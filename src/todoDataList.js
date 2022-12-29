@@ -18,14 +18,13 @@ import PS from './PS'
     const addTodo = function (todo) {
         todolist.push(todo)
         localStorage.setItem(`${todo.id}`, JSON.stringify(todo))
-        // console.log(todolist)
     }
 
     const uid = function () {
         return Date.now().toString(36) + Math.random().toString(36).substring(2);
     }
 
-    function createTodo({ title }) {
+    const createTodo = function ({ title }) {
         let id = uid()
         let newTodo = {
             id: id,
@@ -40,7 +39,7 @@ import PS from './PS'
         return newTodo
     }
 
-    function updateTodo(todo) {
+    const updateTodo = function (todo) {
         for (let i = 0; i < todolist.length; i++) {
             if (todolist[i].id === todo.id) {
                 todolist[i] = todo;
@@ -50,7 +49,7 @@ import PS from './PS'
         }
     }
 
-    function readTodo(id) {
+    const readTodo = function (id) {
         for (let i = 0; i < todolist.length; i++) {
             if (todolist[i].id === id) {
                 return todolist[i]
@@ -58,7 +57,7 @@ import PS from './PS'
         }
     }
 
-    function delTodo(id) {
+    const delTodo = function (id) {
         for (let i = 0; i < todolist.length; i++) {
             if (todolist[i].id === id) {
                 todolist.splice(i, 1)
@@ -68,11 +67,17 @@ import PS from './PS'
         }
     }
 
+    const delAllTodo = function (params) {
+        localStorage.clear()
+
+    }
+
     PS.sub('addTodo', addTodo)
     PS.sub('getTodolist', returnTodo)
     PS.sub('createTodo', createTodo)
     PS.sub('updateTodo', updateTodo)
     PS.sub('readTodo', readTodo)
     PS.sub('delTodo', delTodo)
+    PS.sub('delAllTodo', delAllTodo)
 
 })()

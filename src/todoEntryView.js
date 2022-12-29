@@ -73,8 +73,8 @@ import PS from './PS'
     let delBtnListener = function (e) {
         let entryViewEl = e.target.parentElement.parentElement
         let id = entryViewEl.dataset.entryId
-        PS.trigger('removeEntry', +id)
-        PS.trigger('delTodo', +id)
+        PS.trigger('removeEntry', id)
+        PS.trigger('delTodo', id)
         closeBtnEventHandler(e)
     }
 
@@ -103,7 +103,6 @@ import PS from './PS'
     }
 
     let todoEntryView = function (toViewTodo) {
-        console.log(toViewTodo)
         todo = toViewTodo;
         setElementAtt(todo)
         setElementsValueNtext(todo)

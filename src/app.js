@@ -1,6 +1,7 @@
 import './todoDataList'
-import './todoEntryRead'
 import "./todoEntryCreate";
+import './todoEntryRead'
+import "./todoEntryDelete";
 import "./todoEntryView";
 import PS from './PS'
 import inputEntry from './inputEntry'
@@ -12,9 +13,9 @@ function app() {
 
     let removeAll = DOM.findId("remove-all-task")
 
-    removeAll.onclick = function (params) {
-        localStorage.clear()
-        PS.trigger('reRenderEntries')
+    removeAll.onclick = function () {
+        PS.trigger('removeAllEntry')
+        PS.trigger('delAllTodo')
     }
 
 }
