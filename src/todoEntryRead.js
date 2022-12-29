@@ -19,8 +19,6 @@ import PS from './PS'
     }
 
 
-
-
     PS.sub('renderEntries', renderEntries)
     PS.sub('reRenderEntries', reRenderEntries)
 

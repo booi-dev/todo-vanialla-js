@@ -9,6 +9,7 @@ import PS from './PS'
     // console.log(date)
 
     function createEntryTodo({ id, title, group }) {
+        console.log(id, title, group)
         let titleEntry = DOM.createEl('div')
         let inGroup = DOM.createEl('div')
         let isCheck = DOM.createEl('button')
@@ -33,7 +34,7 @@ import PS from './PS'
         let delBtnEventHandler = function (e) {
             let titleEl = e.target.parentElement;
             let id = titleEl.dataset.id;
-            removeEntry(+id)
+            PS.trigger('removeEntry', +id)
             PS.trigger('delTodo', +id)
         }
 
@@ -63,13 +64,7 @@ import PS from './PS'
         titleEntryDiv.prepend(el)
     }
 
-    function removeEntry(id) {
-        let getTargetEntry = DOM.find(`[data-item][data-id='${id}']`)
-        getTargetEntry.remove()
-    }
-
     PS.sub('createEntryTodo', createEntryTodo)
     PS.sub('addEntry', addEntry)
-    PS.sub('removeEntry', removeEntry)
 
 })()
