@@ -37,8 +37,12 @@ state management : DONE
 
 ...
 
-fix ID issue.
+fix ID issue. DONE
 
 ...
 
-Load, entrie after updates
+Load, entrie after updates. DONE.
+
+...
+
+Del - re-render fix

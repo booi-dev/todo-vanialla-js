@@ -11,21 +11,24 @@ import PS from './PS'
         console.log()
     }
 
-
-    function returnTodo() {
+    const returnTodo = function () {
         return todolist;
     }
 
-    let addTodo = function (todo) {
+    const addTodo = function (todo) {
         todolist.push(todo)
-        localStorage.setItem(`tdls${todo.id}`, JSON.stringify(todo))
-        console.log(todolist)
+        localStorage.setItem(`${todo.id}`, JSON.stringify(todo))
+        // console.log(todolist)
+    }
+
+    const uid = function () {
+        return Date.now().toString(36) + Math.random().toString(36).substring(2);
     }
 
     function createTodo({ title }) {
-        let itemId = todolist.length + 1;
+        let id = uid()
         let newTodo = {
-            id: itemId,
+            id: id,
             title: title,
             note: "",
             dueDate: "",
@@ -59,7 +62,7 @@ import PS from './PS'
         for (let i = 0; i < todolist.length; i++) {
             if (todolist[i].id === id) {
                 todolist.splice(i, 1)
-                // localStorage.removeItem(id)
+                localStorage.removeItem(id)
             }
             console.log(todolist)
         }
