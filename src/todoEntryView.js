@@ -53,7 +53,7 @@ import PS from './PS'
         noteEl.value = todo.note
     }
 
-    // bing events
+    // bind events
 
     let titleInputListener = function (e) {
         let updatedTodo = { ...todo, title: e.target.value }

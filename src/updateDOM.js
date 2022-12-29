@@ -12,18 +12,6 @@ import PS from './PS'
         })
     }
 
-    let itemInput = DOM.findAtt('[data-item-input]')
-
-    let updatePlaceHolderFocus = function () {
-        itemInput.placeholder = ' enter task title'
-    }
-
-    let updatePlaceHolderBlur = function () {
-        itemInput.placeholder = '+ add task'
-    }
-
     PS.sub('renderEntries', renderEntries)
-    PS.sub('updatePlaceHolderFocus', updatePlaceHolderFocus)
-    PS.sub('updatePlaceHolderBlur', updatePlaceHolderBlur)
 
 })()

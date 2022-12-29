@@ -6,11 +6,11 @@ let eventBinder = function () {
     let inputField = DOM.find('[data-item-input]')
 
     let inputFocusHandler = function () {
-        PS.trigger('updatePlaceHolderFocus')
+        inputField.placeholder = ' enter task title'
     }
 
     let inputBlurHandler = function () {
-        PS.trigger('updatePlaceHolderBlur')
+        inputField.placeholder = '+ add task'
     }
 
     let entryInputhandler = function (e) {

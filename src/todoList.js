@@ -2,39 +2,7 @@ import PS from './PS'
 
 (function () {
 
-    let todolist = [
-
-        {
-            id: 1,
-            title: "This is first task",
-            note: "I don't know what to write here.",
-            dueDate: "",
-            priority: "high",
-            group: "dragon",
-            check: false
-        },
-
-        {
-            id: 2,
-            title: "This is second task",
-            note: "I still don't know what to write here.",
-            dueDate: "",
-            priority: "medium",
-            group: "tiger",
-            check: false
-        },
-
-        {
-            id: 3,
-            title: "This is third task",
-            note: "I love dog. I love cat more.",
-            dueDate: "",
-            priority: "low",
-            group: "gate",
-            check: false
-        }
-    ]
-
+    let todolist = []
 
     for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i)
@@ -74,6 +42,7 @@ import PS from './PS'
                 todolist[i] = todo;
                 localStorage.setItem(`tdls${todo.id}`, JSON.stringify(todo))
                 console.log(todolist[i])
+                PS.trigger('renderEntries')
             }
         }
     }

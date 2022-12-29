@@ -28,9 +28,17 @@ add newly created item to the todoData as well... after the DOM is updated. DONE
 
 ...
 
-local storage
+local storage DONE
 
 ...
 
 check / uncheck : DONE
 state management : DONE
+
+...
+
+fix ID issue.
+
+...
+
+Load, entrie after updates
