@@ -41,7 +41,8 @@ import PS from './PS'
         let titleClickEventHandler = function (e) {
             let titleEl = e.target.parentElement;
             let id = titleEl.dataset.id;
-            let todo = PS.trigger("readTodo", +id)
+            console.log(id)
+            let todo = PS.trigger("readTodo", id)
             PS.trigger("todoEntryView", todo)
         }
 

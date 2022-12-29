@@ -103,6 +103,7 @@ import PS from './PS'
     }
 
     let todoEntryView = function (toViewTodo) {
+        console.log(toViewTodo)
         todo = toViewTodo;
         setElementAtt(todo)
         setElementsValueNtext(todo)
