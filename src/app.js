@@ -1,5 +1,5 @@
 import './todoList'
-import './updateDOM'
+import './todoEntryRead'
 import "./todoEntry";
 import "./todoEntryView";
 import PS from './PS'
