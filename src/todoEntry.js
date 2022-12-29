@@ -59,13 +59,8 @@ import PS from './PS'
     }
 
     function addEntry(el) {
-        // console.log('and entry')
         let titleEntryDiv = DOM.findAtt('[data-todo-items]')
         titleEntryDiv.prepend(el)
-    }
-
-    function updateTodo(todo) {
-        PS.trigger('updateTodo', todo)
     }
 
     function removeEntry(id) {
@@ -76,6 +71,5 @@ import PS from './PS'
     PS.sub('createEntryTodo', createEntryTodo)
     PS.sub('addEntry', addEntry)
     PS.sub('removeEntry', removeEntry)
-    // PS.sub('updateEntry', updateEntry)
 
 })()

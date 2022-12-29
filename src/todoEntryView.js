@@ -102,7 +102,7 @@ import PS from './PS'
         entryViewContainer.replaceChildren(entryViewEl)
     }
 
-    function todoEntryView(toViewTodo) {
+    let todoEntryView = function (toViewTodo) {
         todo = toViewTodo;
         setElementAtt(todo)
         setElementsValueNtext(todo)
