@@ -18,7 +18,7 @@ import PS from './PS'
     let priorityEl = DOM.createEl('div')
     let noteEl = DOM.createEl('textarea')
 
-    // DOM set att & cls
+    // set ELEMENTS att & cls
 
     entryViewEl.classList.add('entry-el--view')
     headerEl.classList.add('header--view')
@@ -33,44 +33,43 @@ import PS from './PS'
     priorityEl.classList.add('priority--view')
     noteEl.classList.add('note--view')
 
-    let setElementAtt = function (todo) {
+    const setElementAtt = function (todo) {
         entryViewEl.setAttribute('data-entry-id', todo.id)
     }
 
-    let setElementsValueNtext = function (todo) {
-        inGroupEl.textContent = todo.group;
+    // set element's VALUE & TEXT
 
+    const setElementsValueNtext = function (todo) {
+        inGroupEl.textContent = todo.group;
         todo.check
             ? isCheckEl.innerText = 'checked'
             : isCheckEl.innerText = 'not checked'
-
         delBtnEl.innerText = 'delete'
         closeEl.innerText = 'x'
-
         titleEl.value = todo.title
         dueDateEl.innerText = todo.dueDate
         priorityEl.innerText = todo.priority
         noteEl.value = todo.note
     }
 
-    // bind events
+    // bind EVENTS
 
-    let titleInputListener = function (e) {
+    const titleInputListener = function (e) {
         let updatedTodo = { ...todo, title: e.target.value }
         PS.trigger('updateTodo', updatedTodo)
     }
 
-    let noteInputListener = function (e) {
+    const noteInputListener = function (e) {
         let updatedTodo = { ...todo, note: e.target.value }
         PS.trigger('updateTodo', updatedTodo)
     }
 
-    let closeBtnEventHandler = function (e) {
+    const closeBtnEventHandler = function (e) {
         let entryViewEl = e.target.parentElement.parentElement;
         entryViewEl.remove()
     }
 
-    let delBtnListener = function (e) {
+    const delBtnListener = function (e) {
         let entryViewEl = e.target.parentElement.parentElement
         let id = entryViewEl.dataset.entryId
         PS.trigger('removeEntry', id)
@@ -78,7 +77,7 @@ import PS from './PS'
         closeBtnEventHandler(e)
     }
 
-    let checkBtnEventHandler = function (e) {
+    const checkBtnEventHandler = function (e) {
         let updatedTodo = { ...todo, check: !todo.check }
         PS.trigger('updateTodo', updatedTodo)
         todo.check = !todo.check
@@ -92,7 +91,9 @@ import PS from './PS'
     closeEl.addEventListener('click', closeBtnEventHandler)
     isCheckEl.addEventListener('click', checkBtnEventHandler)
 
-    let render = function () {
+    // RENDER
+
+    const render = function () {
         headerEl.append(inGroupEl, isCheckEl, delBtnEl, closeEl)
         btnsPanel.append(dueDateEl, priorityEl)
 
@@ -102,7 +103,7 @@ import PS from './PS'
         entryViewContainer.replaceChildren(entryViewEl)
     }
 
-    let todoEntryView = function (toViewTodo) {
+    const todoEntryView = function (toViewTodo) {
         todo = toViewTodo;
         setElementAtt(todo)
         setElementsValueNtext(todo)

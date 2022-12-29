@@ -12,6 +12,10 @@ let domQuery = (function () {
         return document.getElementById(`${params}`)
     }
 
+    function findclass(params) {
+        return document.getElementsByClassName(`${params}`)
+    }
+
     function findAtt(params) {
         return document.querySelector(`${params}`)
     }
@@ -26,7 +30,7 @@ let domQuery = (function () {
         return document.createElement(element)
     }
 
-    return { find, findAll, findId, findAtt, findAttAll, createEl }
+    return { find, findAll, findId, findclass, findAtt, findAttAll, createEl }
 })()
 
 export default domQuery;

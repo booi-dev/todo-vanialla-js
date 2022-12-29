@@ -1,6 +1,11 @@
+import { format } from 'date-fns'
+
 import PS from './PS'
 
 (function () {
+
+    let date = new Date()
+    let dateFormated = format(date, 'dd-MMM')
 
     let todolist = []
 
@@ -30,8 +35,8 @@ import PS from './PS'
             id: id,
             title: title,
             note: "",
-            dueDate: "",
-            priority: "low",
+            dueDate: dateFormated,
+            priority: "medium",
             group: "white tiger",
             check: false
         }

@@ -3,7 +3,6 @@ import PS from './PS'
 
 (function () {
     const removeEntry = function (id) {
-        console.log('remvoe entru')
         let getTargetEntry = DOM.find(`[data-item][data-id='${id}']`)
         getTargetEntry.remove()
     }
