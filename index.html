@@ -13,14 +13,18 @@
       <header class="app-header">this is header</header>
       <main class="app-main">
         <div class="app-title">Good Morning / Noon / Evening</div>
-        <div class="app-calendar">25th Mon</div>
-        <div class="item-add">
-          <textarea
-            class="item-input"
-            data-item-input
-            placeholder="+ add task"
-          ></textarea>
-        </div>
+        <div class="app-date today" id="app-date"></div>
+        <form class="item-add">
+          <div id="entry-field">
+            <textarea
+              class="item-input"
+              data-item-input
+              placeholder="+ add task"
+            ></textarea>
+            <span class="today" id="input-date"></span>
+            <!-- <input type="date" id="dueDate" name="dueDate" /> -->
+          </div>
+        </form>
         <div class="app-entries" data-todo-items>
           <div class="entries-item" data-item></div>
         </div>
