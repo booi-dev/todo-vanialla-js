@@ -41,8 +41,7 @@ import PS from './PS'
             if (todolist[i].id === todo.id) {
                 todolist[i] = todo;
                 localStorage.setItem(`tdls${todo.id}`, JSON.stringify(todo))
-                console.log(todolist[i])
-                PS.trigger('renderEntries')
+                PS.trigger('reRenderEntries')
             }
         }
     }
@@ -59,6 +58,7 @@ import PS from './PS'
         for (let i = 0; i < todolist.length; i++) {
             if (todolist[i].id === id) {
                 todolist.splice(i, 1)
+                // localStorage.removeItem(id)
             }
             console.log(todolist)
         }

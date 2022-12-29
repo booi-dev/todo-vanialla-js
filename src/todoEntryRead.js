@@ -12,6 +12,16 @@ import PS from './PS'
         })
     }
 
+    let reRenderEntries = function (params) {
+        let titleEntryDiv = DOM.findAtt('[data-todo-items]')
+        titleEntryDiv.replaceChildren()
+        renderEntries()
+    }
+
+
+
+
     PS.sub('renderEntries', renderEntries)
+    PS.sub('reRenderEntries', reRenderEntries)
 
 })()
