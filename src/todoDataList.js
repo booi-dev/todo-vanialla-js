@@ -63,11 +63,11 @@ import PS from './PS'
 
     const delTodo = function (id) {
         for (let i = 0; i < todolist.length; i++) {
+            if (!(todolist[i].id === id)) return
             if (todolist[i].id === id) {
                 todolist.splice(i, 1)
                 localStorage.removeItem(id)
             }
-            console.log(todolist)
         }
     }
 

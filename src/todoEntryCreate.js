@@ -27,18 +27,18 @@ import PS from './PS'
         isCheck.classList.add('check--entry')
         delBtn.classList.add('del-btn--entry')
 
-        const setElementAtt = function (todo) {
-            titleEntry.setAttribute('data-item', '')
-            titleEntry.setAttribute('data-id', id)
-            titleEl.setAttribute('id', `title-${id}`)
+        const setElementAtt = function () {
+            titleEntry.setAttribute('data-entry', '')
+            titleEntry.setAttribute('data-entry-id', id)
+            titleEl.setAttribute('data-title-id', id)
             inGroup.setAttribute('id', `group-${id}`)
             isCheck.setAttribute('id', `check-${id}`)
-            delBtn.setAttribute('id', `del-btn-${id}`)
+            delBtn.setAttribute('data-del-id', id)
         }
 
         // set element's VALUE & TEXT
 
-        const setElementsValueNtext = function (todo) {
+        const setElementsValueNtext = function () {
             isCheck.textContent = '';
             inGroup.textContent = group;
             titleEl.textContent = title;
@@ -48,17 +48,15 @@ import PS from './PS'
         // bind EVENTS
 
         let delBtnEventHandler = function (e) {
-            let titleEl = e.target.parentElement;
-            let targetId = titleEl.dataset.id;
-            PS.trigger('removeEntry', targetId)
-            PS.trigger('delTodo', targetId)
+            let id = e.target.dataset.delId;
+            PS.trigger('removeEntry', id)
+            PS.trigger('delTodo', id)
         }
 
         let titleClickEventHandler = function (e) {
-            let titleEl = e.target.parentElement;
-            let targetId = titleEl.dataset.id;
-            let targetTodo = PS.trigger("readTodo", targetId)
-            PS.trigger("todoEntryView", targetTodo)
+            let id = e.target.dataset.titleId;
+            let todo = PS.trigger("readTodo", id)
+            PS.trigger("todoEntryView", todo)
         }
 
         delBtn.addEventListener('click', delBtnEventHandler)
@@ -70,7 +68,6 @@ import PS from './PS'
             header.append(delBtn)
             rightDiv.append(inGroup, titleEl)
             titleEntry.append(isCheck, rightDiv, header)
-            console.log(titleEntry)
             addEntry(titleEntry)
         }
 

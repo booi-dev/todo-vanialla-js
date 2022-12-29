@@ -34,7 +34,8 @@ import PS from './PS'
     noteEl.classList.add('note--view')
 
     const setElementAtt = function (todo) {
-        entryViewEl.setAttribute('data-entry-id', todo.id)
+        entryViewEl.setAttribute('data-view-id', todo.id)
+        delBtnEl.setAttribute('data-view-del-id', todo.id)
     }
 
     // set element's VALUE & TEXT
@@ -70,8 +71,8 @@ import PS from './PS'
     }
 
     const delBtnListener = function (e) {
-        let entryViewEl = e.target.parentElement.parentElement
-        let id = entryViewEl.dataset.entryId
+        let id = e.target.dataset.viewDelId
+        console.log(id)
         PS.trigger('removeEntry', id)
         PS.trigger('delTodo', id)
         closeBtnEventHandler(e)
