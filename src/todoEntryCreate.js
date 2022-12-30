@@ -12,6 +12,7 @@ import "./todoEntryCreate.css";
     const createEntryTodo = function ({ id, title, group, check, dueDate }) {
 
         let titleEntry = DOM.createEl('div')
+        let titleEntryBar = DOM.createEl('div')
         let titleGroupDiv = DOM.createEl('div')
         let header = DOM.createEl('div')
         let inGroup = DOM.createEl('span')
@@ -22,9 +23,9 @@ import "./todoEntryCreate.css";
 
         // set ELEMENTS att & cls
 
-        titleEntry.classList.add('title-container--entry')
-        titleGroupDiv.classList.add('title-grp-div--entry')
-        header.classList.add('title-header-div--entry')
+        titleEntry.classList.add('title-div--entry')
+        titleGroupDiv.classList.add('title-grp--entry')
+        header.classList.add('title-header--entry')
         titleEl.classList.add('title--entry')
         inGroup.classList.add('group--entry')
         isCheck.classList.add('check--entry')
@@ -44,11 +45,11 @@ import "./todoEntryCreate.css";
         // set element's VALUE & TEXT
 
         const setElementsValueNtext = function () {
-            isCheck.textContent = '';
-            inGroup.textContent = `> ${group}`;
-            titleEl.textContent = title;
+            isCheck.innerText = '';
+            inGroup.innerText = `> ${group}`;
+            titleEl.innerText = title;
             dueDateEL.innerText = dueDate;
-            delBtn.textContent = 'DD'
+            delBtn.innerText = 'DD'
         }
 
         // bind EVENTS
@@ -61,25 +62,25 @@ import "./todoEntryCreate.css";
             PS.trigger('delTodo', id)
         }
 
-        let titleClickEventHandler = function (e) {
-            let id = e.target.dataset.titleId;
+        let displayEntryViewModal = function (id) {
+            if (!id) return
             let todo = PS.trigger("readTodo", id)
             PS.trigger("todoEntryView", todo)
-            console.log("title click")
             entryViewContainer.classList.remove('hidden')
+        }
+
+        let titleClickEventHandler = function (e) {
+            let id = e.target.dataset.titleId;
+            displayEntryViewModal(id)
         }
 
         let entryClickEventHandler = function (e) {
             let id = e.target.dataset.entryId;
-            console.log(id)
-            let todo = PS.trigger("readTodo", id)
-            PS.trigger("todoEntryView", todo)
-            entryViewContainer.classList.remove('hidden')
-            console.log("div click")
+            displayEntryViewModal(id)
         }
 
         delBtn.addEventListener('click', delBtnEventHandler)
-        // titleEl.addEventListener('click', titleClickEventHandler)
+        titleEl.addEventListener('click', titleClickEventHandler)
         titleEntry.addEventListener('click', entryClickEventHandler)
 
         // RENDER

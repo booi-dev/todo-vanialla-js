@@ -20,25 +20,35 @@
   --size-font-3: 1.5rem;
   --size-font-4: 2rem;
 }
-
 .title-container--entry {
+  position: relative;
+}
+
+.title-div--entry {
   display: flex;
   align-items: center;
   gap: 10px;
-  position: relative;
   padding: 0.5em;
   margin-block: 0.5em;
   background-color: var(--card-bg-2-color);
+  height: 70px;
   width: 80%;
-  position: relative;
+  z-index: 1;
+}
+
+.title-bar--entry {
+  position: absolute;
+  background-color: rgba(182, 30, 30, 0.244);
+  height: 70px;
+  width: 80%;
   z-index: 2;
 }
 
-.title-grp-div--entry,
+/* .title-grp-div--entry,
 .title-header-div--entry,
 .check--entry {
   z-index: 1;
-}
+} */
 
 .group--entry {
   font-size: var(--size-font-1);
@@ -66,4 +76,9 @@
   font-size: var(--size-font-2);
   margin: 0.2em;
   font-weight: 300;
+}
+
+.del-btn--entry {
+  z-index: 4;
+  background-color: aqua;
 }
