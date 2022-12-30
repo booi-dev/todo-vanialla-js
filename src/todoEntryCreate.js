@@ -12,7 +12,6 @@ import "./todoEntryCreate.css";
     const createEntryTodo = function ({ id, title, group, check, dueDate }) {
 
         let titleEntry = DOM.createEl('div')
-        let titleEntryBar = DOM.createEl('div')
         let titleGroupDiv = DOM.createEl('div')
         let header = DOM.createEl('div')
         let inGroup = DOM.createEl('span')

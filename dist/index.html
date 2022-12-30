@@ -9,8 +9,33 @@
   </head>
   <body>
     <div class="app-container">
-      <section class="app-sidebar">this is app-sidebar</section>
-      <header class="app-header">this is header</header>
+      <section class="app-sidebar">
+        <div class="account">
+          <div>setting</div>
+          <div class="user-name">account name</div>
+        </div>
+        <div class="side-minu-scroll">
+          <div class="group-item">
+            <div>Today</div>
+            <div>Next 7 days</div>
+            <div>All my tasks</div>
+          </div>
+
+          <div>
+            <div>
+              <h2>My lists</h2>
+              <button class="add-group-btn">+</button>
+            </div>
+            <input
+              type="text"
+              class="add-group-input-field"
+              placeholder="+ group"
+            />
+            <div class="group-categories" data-group-categories></div>
+          </div>
+        </div>
+      </section>
+      <header class="app-header hidden">this is header</header>
       <main class="app-main">
         <div class="app-title">Good Morning / Noon / Evening</div>
         <div class="app-date today" id="app-date"></div>
@@ -25,12 +50,10 @@
             <!-- <span class="today" id="input-date"></span> -->
           </div>
         </form>
-        <div class="app-entries" data-todo-items>
-          <div class="entries-item" data-item></div>
-        </div>
+        <div class="app-entries" data-todo-items></div>
         <div class="entry-backdrop--view hidden"></div>
         <div data-entry-view></div>
-        <button id="remove-all-task">remove all task</button>
+        <!-- <button id="remove-all-task">remove all task</button> -->
       </main>
     </div>
   </body>

@@ -10,17 +10,12 @@
   --size-font-4: 2rem;
 }
 
-.input-entry {
-  max-width: 80%;
-  height: auto;
-  align-items: center;
-}
-
 .input-field {
   width: 100%;
   border: none;
   padding: 14px;
   line-height: 16px;
+
   border: 1px solid var(--card-bg-3-color);
   font-size: var(--size-font-2);
   font-weight: 300;

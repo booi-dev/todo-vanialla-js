@@ -7,11 +7,11 @@ let inputEntry = function () {
     let inputField = DOM.find('[data-item-input]')
 
     let inputFocusHandler = function () {
-        inputField.placeholder = ' enter task title'
+        inputField.placeholder = ' enter task title';
     }
 
     let inputBlurHandler = function () {
-        inputField.placeholder = '+ add task'
+        inputField.placeholder = '+ add task';
     }
 
     let entryInputhandler = function (e) {
@@ -20,7 +20,6 @@ let inputEntry = function () {
             e.preventDefault();
             let todo = PS.trigger('createTodo', item)
             PS.trigger('createEntryTodo', todo)
-
             inputField.value = ''
             inputFocusHandler()
         }

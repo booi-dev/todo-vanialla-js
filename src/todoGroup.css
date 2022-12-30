@@ -1,0 +1,40 @@
+.grp-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+  padding: 0.5em;
+  margin: 0.5em 0;
+}
+
+.grp-div:hover {
+  background-color: #2e2e2e;
+}
+
+.grp-del-btn img {
+  display: block;
+  width: 18px;
+}
+
+.grp-del-btn.hidden img {
+  display: none;
+}
+
+.grp-del-btn img:hover {
+  display: block;
+  width: 18px;
+}
+
+.group-categories {
+  overflow-y: scroll;
+  height: 50vh;
+}
+
+.group-categories::-webkit-scrollbar {
+  width: 0.2em;
+}
+
+.group-categories::-webkit-scrollbar-thumb {
+  background-color: #3ab95e;
+  border-radius: 20px;
+}

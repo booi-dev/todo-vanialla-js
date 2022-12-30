@@ -32,7 +32,7 @@
   margin-block: 0.5em;
   background-color: var(--card-bg-2-color);
   height: 70px;
-  width: 80%;
+  width: 100%;
   z-index: 1;
 }
 
@@ -40,15 +40,9 @@
   position: absolute;
   background-color: rgba(182, 30, 30, 0.244);
   height: 70px;
-  width: 80%;
+  width: 100%;
   z-index: 2;
 }
-
-/* .title-grp-div--entry,
-.title-header-div--entry,
-.check--entry {
-  z-index: 1;
-} */
 
 .group--entry {
   font-size: var(--size-font-1);
@@ -78,7 +72,11 @@
   font-weight: 300;
 }
 
+.group--entry,
+.due-date--entry {
+  color: var(--color-3);
+}
+
 .del-btn--entry {
-  z-index: 4;
   background-color: aqua;
 }

@@ -11,8 +11,12 @@ import PS from './PS'
 
     for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i)
-        let todo = localStorage.getItem(key)
-        todolist.push(JSON.parse(todo))
+        let item = localStorage.getItem(key)
+        let todo = JSON.parse(item)
+        if (todo.isTodo) {
+            todolist.push(todo)
+        }
+
     }
 
     const returnTodo = function () {
@@ -38,7 +42,8 @@ import PS from './PS'
             dueDate: dateFormated,
             priority: "medium",
             group: "dragon",
-            check: false
+            check: false,
+            isTodo: true
         }
         addTodo(newTodo)
         return newTodo
@@ -75,7 +80,7 @@ import PS from './PS'
 
     const delAllTodo = function (params) {
         localStorage.clear()
-
+        console.log("local storage cleared")
     }
 
     PS.sub('addTodo', addTodo)
