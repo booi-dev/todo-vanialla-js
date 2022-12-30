@@ -15,19 +15,21 @@
         <div class="app-title">Good Morning / Noon / Evening</div>
         <div class="app-date today" id="app-date"></div>
         <form class="item-add">
-          <div id="entry-field">
+          <div class="input-entry">
             <textarea
-              class="item-input"
+              class="input-field"
               data-item-input
               placeholder="+ add task"
+              style="height: 44px"
             ></textarea>
-            <span class="today" id="input-date"></span>
+            <!-- <span class="today" id="input-date"></span> -->
           </div>
         </form>
         <div class="app-entries" data-todo-items>
           <div class="entries-item" data-item></div>
         </div>
-        <div class="entry-view-container" data-entry-view></div>
+        <div class="entry-backdrop--view hidden"></div>
+        <div data-entry-view></div>
         <button id="remove-all-task">remove all task</button>
       </main>
     </div>
