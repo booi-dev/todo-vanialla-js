@@ -12,7 +12,7 @@ import "./todoEntryCreate.css";
     const createEntryTodo = function ({ id, title, group, check, dueDate }) {
 
         let titleEntry = DOM.createEl('div')
-        let rightDiv = DOM.createEl('div')
+        let titleGroupDiv = DOM.createEl('div')
         let header = DOM.createEl('div')
         let inGroup = DOM.createEl('span')
         let isCheck = DOM.createEl('button')
@@ -23,6 +23,8 @@ import "./todoEntryCreate.css";
         // set ELEMENTS att & cls
 
         titleEntry.classList.add('title-container--entry')
+        titleGroupDiv.classList.add('title-grp-div--entry')
+        header.classList.add('title-header-div--entry')
         titleEl.classList.add('title--entry')
         inGroup.classList.add('group--entry')
         isCheck.classList.add('check--entry')
@@ -69,21 +71,23 @@ import "./todoEntryCreate.css";
 
         let entryClickEventHandler = function (e) {
             let id = e.target.dataset.entryId;
+            console.log(id)
             let todo = PS.trigger("readTodo", id)
             PS.trigger("todoEntryView", todo)
+            entryViewContainer.classList.remove('hidden')
             console.log("div click")
         }
 
         delBtn.addEventListener('click', delBtnEventHandler)
-        titleEl.addEventListener('click', titleClickEventHandler)
-        // titleEntry.addEventListener('click', entryClickEventHandler)
+        // titleEl.addEventListener('click', titleClickEventHandler)
+        titleEntry.addEventListener('click', entryClickEventHandler)
 
         // RENDER
 
         const render = function () {
             header.append(delBtn)
-            rightDiv.append(inGroup, dueDateEL, titleEl)
-            titleEntry.append(isCheck, rightDiv, header)
+            titleGroupDiv.append(inGroup, dueDateEL, titleEl)
+            titleEntry.append(isCheck, titleGroupDiv, header)
             addEntry(titleEntry)
         }
 

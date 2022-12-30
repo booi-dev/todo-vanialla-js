@@ -65,7 +65,6 @@ import PS from './PS'
 
     const delTodo = function (id) {
         for (let i = 0; i < todolist.length; i++) {
-            if (!(todolist[i].id === id)) return
             if (todolist[i].id === id) {
                 console.log(id)
                 todolist.splice(i, 1)

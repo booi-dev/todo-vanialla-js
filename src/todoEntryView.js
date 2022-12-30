@@ -94,7 +94,6 @@ import './todoEntryView.css'
     isCheckEl.addEventListener('click', checkBtnEventHandler)
 
     let entryViewContainer = DOM.find('.entry-backdrop--view')
-    console.log(entryViewContainer)
 
     entryViewContainer.addEventListener('click', closeViewHandler)
 

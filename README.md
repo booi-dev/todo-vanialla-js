@@ -30,10 +30,10 @@ Del - re-render fix. DONE
 
 ...
 
-Date
+Date: DONE
 
 Priority update func
 
-group
+group:
 
 sorting - newest
