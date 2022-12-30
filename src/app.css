@@ -1,4 +1,4 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap");
 
 * {
   box-sizing: border-box;
@@ -35,5 +35,5 @@ body {
   font-size: var(--size-font-2);
   font-family: "Roboto", sans-serif;
   font-weight: 100;
-  padding: 3em;
+  padding-block: 3em;
 }

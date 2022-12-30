@@ -15,7 +15,7 @@
   border: none;
   padding: 14px;
   line-height: 16px;
-
+  resize: none;
   border: 1px solid var(--card-bg-3-color);
   font-size: var(--size-font-2);
   font-weight: 300;

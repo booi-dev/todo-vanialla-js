@@ -1,10 +1,25 @@
+.add-group-input-field {
+  margin-left: 4.2em;
+  margin-block: 1em;
+  padding: 0 0.4em;
+  width: calc(350px - 4.2em);
+  height: 35px;
+}
+
 .grp-div {
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 1rem;
-  padding: 0.5em;
-  margin: 0.5em 0;
+  padding: 0.4em 0;
+  padding-left: 3.5em;
+  margin: 0.3em 0;
+  color: #8e8e8e;
+}
+
+.grp-div h3 {
+  font-family: inherit;
+  font-weight: 300;
 }
 
 .grp-div:hover {
@@ -35,6 +50,6 @@
 }
 
 .group-categories::-webkit-scrollbar-thumb {
-  background-color: #3ab95e;
+  background-color: #313566;
   border-radius: 20px;
 }
