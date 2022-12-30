@@ -22,6 +22,7 @@ import PS from './PS'
     const addTodo = function (todo) {
         todolist.push(todo)
         localStorage.setItem(`${todo.id}`, JSON.stringify(todo))
+        console.log(todo.title)
     }
 
     const uid = function () {
@@ -47,8 +48,9 @@ import PS from './PS'
         for (let i = 0; i < todolist.length; i++) {
             if (todolist[i].id === todo.id) {
                 todolist[i] = todo;
-                localStorage.setItem(`tdls${todo.id}`, JSON.stringify(todo))
+                localStorage.setItem(`${todo.id}`, JSON.stringify(todo))
                 PS.trigger('reRenderEntries')
+                console.log(todolist[i])
             }
         }
     }
@@ -65,6 +67,7 @@ import PS from './PS'
         for (let i = 0; i < todolist.length; i++) {
             if (!(todolist[i].id === id)) return
             if (todolist[i].id === id) {
+                console.log(id)
                 todolist.splice(i, 1)
                 localStorage.removeItem(id)
             }

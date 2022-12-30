@@ -1,12 +1,13 @@
 import DOM from './DOMquery'
 import PS from './PS'
+import './todoEntryView.css'
 
 (function () {
 
     let todo;
 
     // DOM elements creating
-    let entryViewEl = DOM.createEl('div')
+    let entryView = DOM.createEl('div')
     let headerEl = DOM.createEl('div')
     let inGroupEl = DOM.createEl('div')
     let isCheckEl = DOM.createEl('button')
@@ -20,7 +21,7 @@ import PS from './PS'
 
     // set ELEMENTS att & cls
 
-    entryViewEl.classList.add('entry-el--view')
+    entryView.classList.add('entry--view')
     headerEl.classList.add('header--view')
     inGroupEl.classList.add('group--view')
     isCheckEl.classList.add('check-status--vier')
@@ -34,8 +35,9 @@ import PS from './PS'
     noteEl.classList.add('note--view')
 
     const setElementAtt = function (todo) {
-        entryViewEl.setAttribute('data-view-id', todo.id)
+        entryView.setAttribute('data-view-id', todo.id)
         delBtnEl.setAttribute('data-view-del-id', todo.id)
+        closeEl.setAttribute('data-view-close-id', todo.id)
     }
 
     // set element's VALUE & TEXT
@@ -65,17 +67,16 @@ import PS from './PS'
         PS.trigger('updateTodo', updatedTodo)
     }
 
-    const closeBtnEventHandler = function (e) {
-        let entryViewEl = e.target.parentElement.parentElement;
-        entryViewEl.remove()
+    const closeViewHandler = function (e) {
+        entryViewContainer.classList.add('hidden')
+        entryView.remove()
     }
 
     const delBtnListener = function (e) {
         let id = e.target.dataset.viewDelId
-        console.log(id)
         PS.trigger('removeEntry', id)
         PS.trigger('delTodo', id)
-        closeBtnEventHandler(e)
+        closeViewHandler()
     }
 
     const checkBtnEventHandler = function (e) {
@@ -89,8 +90,13 @@ import PS from './PS'
     titleEl.addEventListener('change', titleInputListener)
     noteEl.addEventListener('change', noteInputListener)
     delBtnEl.addEventListener('click', delBtnListener)
-    closeEl.addEventListener('click', closeBtnEventHandler)
+    closeEl.addEventListener('click', closeViewHandler)
     isCheckEl.addEventListener('click', checkBtnEventHandler)
+
+    let entryViewContainer = DOM.find('.entry-backdrop--view')
+    console.log(entryViewContainer)
+
+    entryViewContainer.addEventListener('click', closeViewHandler)
 
     // RENDER
 
@@ -98,10 +104,10 @@ import PS from './PS'
         headerEl.append(inGroupEl, isCheckEl, delBtnEl, closeEl)
         btnsPanel.append(dueDateEl, priorityEl)
 
-        entryViewEl.append(headerEl, titleEl, btnsPanel, noteEl)
+        entryView.append(headerEl, titleEl, btnsPanel, noteEl)
 
-        let entryViewContainer = DOM.find('[data-entry-view]')
-        entryViewContainer.replaceChildren(entryViewEl)
+        let viewDiv = DOM.find('[data-entry-view]')
+        viewDiv.replaceChildren(entryView)
     }
 
     const todoEntryView = function (toViewTodo) {

@@ -1,0 +1,36 @@
+:root {
+  --card-bg-1-color: #161616;
+  --card-bg-2-color: #252525;
+  --card-bg-3-color: #424242;
+  --card-bg-4-color: #1c1c1c;
+}
+
+.entry-backdrop--view {
+  background-color: #06060662;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+}
+
+.entry-backdrop--view.hidden {
+  display: none;
+}
+
+.entry--view {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+
+  padding: 2em;
+
+  background-color: #12d636d8;
+  z-index: 3;
+}

@@ -1,5 +1,6 @@
 import PS from './PS'
 import DOM from './DOMquery'
+import './inputEntry.css'
 
 let inputEntry = function () {
 

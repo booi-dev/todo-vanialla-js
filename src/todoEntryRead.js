@@ -6,10 +6,10 @@ import PS from './PS'
     let todolist = PS.trigger('getTodolist', '')
 
     let renderEntries = function () {
-        todolist.forEach(list => {
-            let titleEl = PS.trigger('createEntryTodo', list)
+        for (let i = 0; i < todolist.length; i++) {
+            let titleEl = PS.trigger('createEntryTodo', todolist[i])
             PS.trigger('addEntry', titleEl)
-        })
+        }
     }
 
     let reRenderEntries = function (params) {

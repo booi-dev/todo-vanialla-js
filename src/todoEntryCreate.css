@@ -4,7 +4,7 @@
   --card-bg-1-color: #161616;
   --card-bg-2-color: #252525;
   --card-bg-3-color: #424242;
-  --card-bg-4-color: #1c1c1c;
+  --card-bg-4-color: #464646;
 
   --color-1: #8e8e92;
   --color-2: #8e8e92;
@@ -14,27 +14,49 @@
   --color-text-2: #a2a2a2;
   --color-text-3: #777;
   --color-text-4: #777;
+
+  --size-font-1: 1rem;
+  --size-font-2: 1.2rem;
+  --size-font-3: 1.5rem;
+  --size-font-4: 2rem;
 }
 
 .title-container--entry {
   display: flex;
   align-items: center;
   gap: 10px;
-  background-color: var(--card-bg-1-color);
+  position: relative;
+  padding: 0.5em;
+  margin-block: 0.5em;
+  background-color: var(--card-bg-2-color);
+  width: 80%;
   position: relative;
 }
 
-/* .check--entry {
+.group--entry {
+  font-size: var(--size-font-1);
+}
+
+.due-date--entry {
+  font-size: var(--size-font-1);
+  background-color: var(--card-bg-4-color);
+  padding: 1px 4px;
+  margin: 0 4px;
+}
+
+.check--entry {
   width: 30px;
   height: 30px;
-} */
-
-/* .check--entry::after, */
-.check--entry::before {
-  content: "";
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border: 5px solid rgb(249, 249, 249);
   border-radius: 50%;
+  border: 5px solid var(--card-bg-3-color);
+}
+
+.check--entry.checked {
+  background-color: #000;
+}
+
+.title--entry {
+  font-size: var(--size-font-2);
+  margin: 0.2em;
+  font-weight: 300;
 }

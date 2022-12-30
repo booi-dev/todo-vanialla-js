@@ -1,0 +1,38 @@
+:root {
+  --card-bg-1-color: #161616;
+  --card-bg-2-color: #252525;
+  --card-bg-3-color: #424242;
+  --card-bg-4-color: #1c1c1c;
+
+  --size-font-1: 1rem;
+  --size-font-2: 1.2rem;
+  --size-font-3: 1.5rem;
+  --size-font-4: 2rem;
+}
+
+.input-entry {
+  max-width: 80%;
+  height: auto;
+  align-items: center;
+}
+
+.input-field {
+  width: 100%;
+  border: none;
+  padding: 14px;
+  line-height: 16px;
+  border: 1px solid var(--card-bg-3-color);
+  font-size: var(--size-font-2);
+  font-weight: 300;
+  font-family: inherit;
+  color: inherit;
+  overflow: hidden;
+  display: block;
+  direction: ltr;
+  background-color: transparent;
+}
+
+#input-date {
+  color: var(--card-bg-1-color);
+  font-size: var(--size-font-1);
+}
