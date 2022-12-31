@@ -92,6 +92,7 @@
 
 .due-date--view {
   background-color: #252525;
+  color: aqua;
 }
 
 .due-date--view.passed {

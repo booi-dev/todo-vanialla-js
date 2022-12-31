@@ -1,4 +1,4 @@
-import { format } from 'date-fns'
+import { format, getDate, getDay, getMonth } from 'date-fns'
 import './todoDataList'
 import "./todoEntryCreate";
 import './todoEntryRead'
@@ -12,12 +12,25 @@ import './app.css'
 
 function app() {
     let date = new Date()
-    let dateFormated = format(date, 'dd-MMM')
+    let currentDay = format(date, 'EEE')
+    let currentDate = getDate(date)
+    let currentMonth = format(date, 'MMMM')
+    let dayState = format(date, 'B')
+    console.log(dayState)
 
-    let today = DOM.findAll(".today")
-    today.forEach(today => {
-        today.innerText = dateFormated;
-    });
+    let dayEl = DOM.find(".day")
+    let dateEl = DOM.find(".date")
+    let monthEl = DOM.find(".month")
+
+    dayEl.innerText = currentDay;
+    dateEl.innerText = currentDate;
+    monthEl.innerText = currentMonth;
+
+    let greeting = DOM.find(".greeting-time")
+    if (dayState === 'in the afternoon') greeting.innerText = "Good Morning"
+    if (dayState === 'in the afternoon') greeting.innerText = "Good Afternoon"
+    if (dayState === 'in the evening') greeting.innerText = "Good Evening"
+    if (dayState === 'in the night') greeting.innerText = "Good Night"
 
     PS.trigger('renderEntries')
     inputEntry()
@@ -26,6 +39,11 @@ function app() {
         PS.trigger('removeAllEntry')
         PS.trigger('delAllTodo')
     }
+
+
+
+
+
 
 }
 

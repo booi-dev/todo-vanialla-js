@@ -2,11 +2,15 @@
   --color-1: #c6c6c6;
   --color-2: #8e8e92;
   --color-3: #737374;
+
+  --top-bottom-paddin: 0.8em;
+  --size-header: 4em;
 }
 
 .app-container {
   display: grid;
   grid-template-columns: 1fr 4fr;
+  padding-block: var(--top-bottom-paddin);
 }
 
 .app-container.single {
@@ -14,16 +18,42 @@
   grid-template-columns: 1fr;
 }
 
-/* .app-header {
-} */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--size-header);
+  padding: 0 0.5em;
+  margin-bottom: 0.5em;
+}
 
-.app-header.hidden {
-  display: none;
+.app-header .app-title {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.app-header .app-date {
+  line-height: 1.5em;
+  color: aqua;
+}
+
+.app-header .day {
+  font-size: 01rem;
+}
+.app-header .date {
+  font-size: 2.3rem;
+  font-weight: 500;
+}
+.app-header .month {
+  font-size: 1rem;
 }
 
 .app-entries {
-  height: 70vh;
+  height: calc(
+    100vh - (var(--size-header) + 44px + var(--top-bottom-paddin) + 2em)
+  );
   overflow-y: scroll;
+  margin-block: 0.3em;
 }
 
 .app-entries::-webkit-scrollbar {
