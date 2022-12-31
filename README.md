@@ -32,7 +32,7 @@ Del - re-render fix. DONE
 
 Date: DONE
 
-Priority update func
+Priority update func:
 
 group:
 

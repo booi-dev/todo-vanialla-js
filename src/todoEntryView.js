@@ -1,5 +1,6 @@
 import DOM from './DOMquery'
 import PS from './PS'
+import DELETE_BTN from './img/delete.png'
 import './todoEntryView.css'
 
 (function () {
@@ -9,14 +10,17 @@ import './todoEntryView.css'
     // DOM elements creating
     let entryView = DOM.createEl('div')
     let headerEl = DOM.createEl('div')
+    let headerRightEl = DOM.createEl('div')
     let inGroupEl = DOM.createEl('div')
     let isCheckEl = DOM.createEl('button')
     let delBtnEl = DOM.createEl('button')
+    let delIcon = DOM.createEl('img')
     let closeEl = DOM.createEl('button')
     let titleEl = DOM.createEl('input')
     let btnsPanel = DOM.createEl('div')
     let dueDateEl = DOM.createEl('div')
     let priorityEl = DOM.createEl('div')
+    let noteLable = DOM.createEl('label')
     let noteEl = DOM.createEl('textarea')
 
     // set ELEMENTS att & cls
@@ -26,32 +30,37 @@ import './todoEntryView.css'
     inGroupEl.classList.add('group--view')
     isCheckEl.classList.add('check-status--vier')
     delBtnEl.classList.add('del-btn--view')
+    delIcon.classList.add('del-icon--view')
     closeEl.classList.add('close-view-btn--view')
 
     titleEl.classList.add('title--view')
     btnsPanel.classList.add('btns-panel--view')
     dueDateEl.classList.add('due-date--view')
     priorityEl.classList.add('priority--view')
+    noteLable.classList.add('note-label--view')
     noteEl.classList.add('note--view')
 
     const setElementAtt = function (todo) {
         entryView.setAttribute('data-view-id', todo.id)
-        delBtnEl.setAttribute('data-view-del-id', todo.id)
         closeEl.setAttribute('data-view-close-id', todo.id)
+        delIcon.setAttribute('data-view-del-id', todo.id)
+        delIcon.src = DELETE_BTN
+        noteEl.setAttribute('placeholder', "write note")
     }
 
     // set element's VALUE & TEXT
 
     const setElementsValueNtext = function (todo) {
-        inGroupEl.textContent = todo.group;
+        inGroupEl.textContent = `> ${todo.group}`;
+        isCheckEl.innerText = ''
         todo.check
-            ? isCheckEl.innerText = 'checked'
-            : isCheckEl.innerText = 'not checked'
-        delBtnEl.innerText = 'delete'
+            ? isCheckEl.classList.add('checked')
+            : isCheckEl.classList.remove('checked')
         closeEl.innerText = 'x'
         titleEl.value = todo.title
         dueDateEl.innerText = todo.dueDate
-        priorityEl.innerText = todo.priority
+        priorityEl.innerText = todo.priority;
+        noteLable.innerText = 'NOTES';
         noteEl.value = todo.note
     }
 
@@ -100,11 +109,12 @@ import './todoEntryView.css'
     // RENDER
 
     const render = function () {
-        headerEl.append(inGroupEl, isCheckEl, delBtnEl, closeEl)
+
+        delBtnEl.append(delIcon)
+        headerRightEl.append(isCheckEl, delBtnEl, closeEl)
+        headerEl.append(inGroupEl, headerRightEl)
         btnsPanel.append(dueDateEl, priorityEl)
-
-        entryView.append(headerEl, titleEl, btnsPanel, noteEl)
-
+        entryView.append(headerEl, titleEl, btnsPanel, noteLable, noteEl)
         let viewDiv = DOM.find('[data-entry-view]')
         viewDiv.replaceChildren(entryView)
     }

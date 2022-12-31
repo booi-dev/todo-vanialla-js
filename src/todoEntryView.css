@@ -1,12 +1,12 @@
-:root {
+/* :root {
   --card-bg-1-color: #161616;
   --card-bg-2-color: #252525;
   --card-bg-3-color: #424242;
   --card-bg-4-color: #1c1c1c;
-}
+} */
 
 .entry-backdrop--view {
-  background-color: #d2515162;
+  background-color: #252525a8;
   top: 0;
   bottom: 0;
   left: 0;
@@ -28,9 +28,109 @@
   top: 50%;
   left: 50%;
   translate: -50% -50%;
-
-  padding: 2em;
-
-  background-color: #12d636d8;
+  width: 25em;
+  height: 25em;
+  padding: 1em 2em 2em 2em;
+  background-color: #161616;
   z-index: 4;
+}
+
+.header--view {
+  display: flex;
+  justify-content: space-between;
+  padding: 0em;
+  margin-bottom: 1em;
+}
+
+.check-status--vier {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #6b6b6b;
+  border-radius: 50%;
+  background-color: #cdcdcd;
+}
+.check-status--vier.checked {
+  background-color: #000000;
+}
+
+.del-btn--view {
+  background-color: transparent;
+  border: none;
+  margin-inline: 0.7em;
+}
+
+.del-icon--view {
+  height: 20px;
+  translate: 0 3px;
+}
+
+.close-view-btn--view {
+  width: 20px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.title--view {
+  font-size: 1.4rem;
+}
+
+.btns-panel--view {
+  display: flex;
+  gap: 1em;
+  margin-bottom: 2.8em;
+  font-size: 1rem;
+}
+
+.btns-panel--view div {
+  padding: 0.5em 1em;
+}
+
+.due-date--view {
+  background-color: #252525;
+}
+
+.due-date--view.passed {
+  color: red;
+}
+
+.priority--view {
+  background-color: #252525;
+  padding: 2px 4px;
+}
+
+.priority--view.low {
+  color: #3131d4;
+}
+
+.priority--view.high {
+  color: #0808b7;
+}
+
+.note--view {
+  height: 6em;
+  font-size: 1rem;
+  margin-top: 0.5em;
+  margin-bottom: 2.8em;
+}
+
+.title--view,
+.note--view {
+  padding: 0.5em 4px;
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  font-family: inherit;
+}
+
+.title--view:focus,
+.note--view:focus {
+  background-color: rgb(16, 16, 16);
+  outline: none;
+}
+
+.note-label--view {
+  font-size: 1rem;
+  translate: 4px;
 }
