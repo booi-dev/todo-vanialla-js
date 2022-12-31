@@ -8,20 +8,13 @@
 
 :root {
   --bg-color: #1a1a1a;
-  --acc-color: #0808b7;
-
-  --card-bg-1-color: #161616;
-  --card-bg-4-color: #1c1c1c;
-  --card-bg-2-color: #252525;
-  --card-bg-3-color: #424242;
+  --acc-color: aqua;
 
   --color-1: #e5e5e5;
   --color-2: #8e8e8e;
 
   --size-font-1: 1rem;
   --size-font-2: 1.2rem;
-  --size-font-3: 1.5rem;
-  --size-font-4: 2rem;
 }
 
 body {
@@ -30,5 +23,90 @@ body {
   font-size: var(--size-font-2);
   font-family: "Roboto", sans-serif;
   font-weight: 100;
-  /* padding-block: 3em; */
+}
+
+:root {
+  --color-1: #c6c6c6;
+  --color-2: #8e8e92;
+  --color-3: #737374;
+
+  --top-bottom-paddin: 0.8em;
+  --size-header: 4em;
+}
+
+.app-container {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  padding-block: var(--top-bottom-paddin);
+}
+
+.app-container.single {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--size-header);
+  padding: 0 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.app-header .greeting-time {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.app-header .app-date {
+  line-height: 1.5em;
+  color: aqua;
+}
+
+.app-header .day {
+  font-size: 01rem;
+}
+.app-header .date {
+  font-size: 2.3rem;
+  font-weight: 500;
+}
+.app-header .month {
+  font-size: 1rem;
+}
+
+.app-header .sync img {
+  width: 30px;
+}
+
+.app-entries {
+  height: calc(
+    100vh - (var(--size-header) + 44px + var(--top-bottom-paddin) + 2em)
+  );
+  overflow-y: scroll;
+  margin-block: 0.3em;
+}
+
+.app-entries::-webkit-scrollbar {
+  width: 0.2em;
+}
+
+.app-entries::-webkit-scrollbar-thumb {
+  /* background-color: var(--color-1); */
+  border-radius: 20px;
+}
+
+.app-main {
+  padding-inline: 10%;
+}
+
+.app-sidebar {
+  width: 350px;
+  /* background-color: rgb(3, 26, 26); */
+}
+
+.account,
+.group-items,
+.grp-header {
+  padding: 0 3em;
 }

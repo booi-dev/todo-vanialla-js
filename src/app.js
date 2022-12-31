@@ -8,6 +8,9 @@ import './todoGroups'
 import PS from './PS'
 import inputEntry from './inputEntry'
 import DOM from './DOMquery'
+
+import SYNC_ICON from "./img/sync-icon.png";
+
 import './app.css'
 
 function app() {
@@ -31,6 +34,12 @@ function app() {
     if (dayState === 'in the afternoon') greeting.innerText = "Good Afternoon"
     if (dayState === 'in the evening') greeting.innerText = "Good Evening"
     if (dayState === 'in the night') greeting.innerText = "Good Night"
+
+    let syncEl = DOM.find(".sync")
+    let syncIcon = DOM.createEl('img')
+    syncIcon.src = SYNC_ICON;
+    syncEl.append(syncIcon)
+
 
     PS.trigger('renderEntries')
     inputEntry()
