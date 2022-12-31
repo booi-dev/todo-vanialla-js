@@ -53,6 +53,7 @@
 }
 .check-status--vier.checked {
   background-color: #000000;
+  border: 3px solid #cdcdcd;
 }
 
 .del-btn--view {

@@ -1,5 +1,6 @@
 import DOM from './DOMquery'
 import PS from './PS'
+import DELETE_BTN from './img/delete.png'
 import "./todoEntryCreate.css";
 
 (function () {
@@ -19,18 +20,20 @@ import "./todoEntryCreate.css";
         let titleEl = DOM.createEl('h1')
         let dueDateEL = DOM.createEl('span')
         let delBtn = DOM.createEl('button')
+        let delIcon = DOM.createEl('img')
 
         // set ELEMENTS att & cls
 
         titleEntry.classList.add('title-div--entry')
         titleGroupDiv.classList.add('title-grp--entry')
-        header.classList.add('title-header--entry')
+        header.classList.add('title-header--entry', 'hidden')
         titleEl.classList.add('title--entry')
         inGroup.classList.add('group--entry')
         isCheck.classList.add('check--entry')
         if (todo.check) isCheck.classList.add('checked')
         dueDateEL.classList.add('due-date--entry')
         delBtn.classList.add('del-btn--entry')
+        delIcon.classList.add('del-icon--entry')
 
         const setElementAtt = function () {
             titleEntry.setAttribute('data-entry', '')
@@ -38,7 +41,8 @@ import "./todoEntryCreate.css";
             titleEl.setAttribute('data-title-id', todo.id)
             inGroup.setAttribute('id', `group-${todo.id}`)
             isCheck.setAttribute('id', `check-${todo.id}`)
-            delBtn.setAttribute('data-del-id', todo.id)
+            delIcon.setAttribute('data-del-id', todo.id)
+            delIcon.src = DELETE_BTN;
         }
 
         // set element's VALUE & TEXT
@@ -48,16 +52,27 @@ import "./todoEntryCreate.css";
             inGroup.innerText = `> ${todo.group}`;
             titleEl.innerText = todo.title;
             dueDateEL.innerText = todo.dueDate;
-            delBtn.innerText = 'DD'
+            // delBtn.innerText = 'DD'
         }
 
         // RENDER
 
         const render = function () {
+            delBtn.append(delIcon)
             header.append(delBtn)
             titleGroupDiv.append(inGroup, dueDateEL, titleEl)
             titleEntry.append(isCheck, titleGroupDiv, header)
             addEntry(titleEntry)
+        }
+
+        // mouseover & mouseleave events for del
+
+        const titleEntryMouseOver = function () {
+            header.classList.remove('hidden')
+        }
+
+        const titleEntryMouseLeave = function () {
+            header.classList.add('hidden')
         }
 
         // bind EVENTS
@@ -93,10 +108,12 @@ import "./todoEntryCreate.css";
             todo.check = !todo.check
         }
 
+        isCheck.addEventListener('click', toggleCheckBtnHandler)
         delBtn.addEventListener('click', delBtnEventHandler)
         titleEl.addEventListener('click', titleClickEventHandler)
         titleEntry.addEventListener('click', entryClickEventHandler)
-        isCheck.addEventListener('click', toggleCheckBtnHandler)
+        titleEntry.addEventListener('mouseover', titleEntryMouseOver)
+        titleEntry.addEventListener('mouseleave', titleEntryMouseLeave)
 
         // CREATE func
 

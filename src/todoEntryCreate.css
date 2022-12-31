@@ -20,28 +20,21 @@
   --size-font-3: 1.5rem;
   --size-font-4: 2rem;
 }
-.title-container--entry {
+/* .title-container--entry {
   position: relative;
-}
+} */
 
 .title-div--entry {
   display: flex;
   align-items: center;
   gap: 10px;
+  position: relative;
   padding: 0.5em;
   margin-block: 0.5em;
   background-color: var(--card-bg-2-color);
   height: 70px;
   width: 100%;
   z-index: 1;
-}
-
-.title-bar--entry {
-  position: absolute;
-  background-color: rgba(182, 30, 30, 0.244);
-  height: 70px;
-  width: 100%;
-  z-index: 2;
 }
 
 .group--entry {
@@ -59,11 +52,12 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: 5px solid var(--card-bg-3-color);
+  border: 5px solid #424242;
 }
 
 .check--entry.checked {
   background-color: #000;
+  border: 5px solid #8e8e8e;
 }
 
 .title--entry {
@@ -77,6 +71,21 @@
   color: var(--color-3);
 }
 
+.title-header--entry {
+  position: absolute;
+  background-color: transparent;
+  right: 0.5em;
+}
+
+.title-header--entry.hidden {
+  display: none;
+}
+
 .del-btn--entry {
-  background-color: aqua;
+  border: none;
+  background-color: transparent;
+}
+
+.del-icon--entry {
+  height: 20px;
 }
