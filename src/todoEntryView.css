@@ -37,9 +37,11 @@
 
 .header--view {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 0em;
   margin-bottom: 1em;
+  color: #8e8e8e;
 }
 
 .check-status--vier {
@@ -68,7 +70,7 @@
   width: 20px;
   background-color: transparent;
   border: none;
-  color: white;
+  color: #8e8e8e;
   font-size: 1.5rem;
 }
 
@@ -120,17 +122,18 @@
   padding: 0.5em 4px;
   background-color: transparent;
   border: none;
-  color: inherit;
+  color: #e5e5e5;
   font-family: inherit;
 }
 
 .title--view:focus,
 .note--view:focus {
-  background-color: rgb(16, 16, 16);
+  background-color: #101010;
   outline: none;
 }
 
 .note-label--view {
   font-size: 1rem;
   translate: 4px;
+  color: #8e8e8e;
 }
