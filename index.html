@@ -19,7 +19,6 @@
           <div>Next 7 days</div>
           <div>All my tasks</div>
         </div>
-
         <div>
           <div class="grp-header">
             <h2>My lists</h2>
@@ -33,10 +32,21 @@
           <div class="group-categories" data-group-categories></div>
         </div>
       </section>
-      <header class="app-header hidden">this is header</header>
       <main class="app-main">
-        <div class="app-title">Good Morning / Noon / Evening</div>
-        <div class="app-date today" id="app-date"></div>
+        <header class="app-header">
+          <div class="app-date" id="app-date">
+            <div class="day"></div>
+            <div class="date"></div>
+            <div class="month"></div>
+          </div>
+          <div class="greeting">
+            <div class="greeting-time"></div>
+          </div>
+
+          <div>
+            <div>sync</div>
+          </div>
+        </header>
         <form class="item-add">
           <div class="input-entry">
             <textarea
