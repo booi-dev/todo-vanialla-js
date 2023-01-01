@@ -128,11 +128,10 @@ import "./todoEntryCreate.css";
             }
         }
 
-        const dueDatePast = function (params) {
+        const dueDatePast = function () {
             let isDueDatePast = isPast(new Date(todo.dueDate))
             if (isDueDatePast) dueDateEL.classList.add('past')
         }
-
 
         // CREATE func
 

@@ -1,7 +1,8 @@
-import DOM from './DOMquery'
-import PS from './PS'
-import DELETE_BTN from './img/delete.png'
-import './todoEntryView.css'
+import { isPast } from 'date-fns';
+import DOM from './DOMquery';
+import PS from './PS';
+import DELETE_BTN from './img/delete.png';
+import './todoEntryView.css';
 
 (function () {
 
@@ -57,12 +58,17 @@ import './todoEntryView.css'
             ? isCheckEl.classList.add('checked')
             : isCheckEl.classList.remove('checked')
         closeEl.innerText = 'x'
-        titleEl.value = todo.title
-        dueDateEl.innerText = todo.dueDate
+        titleEl.value = todo.title;
+        dueDateEl.innerText = todo.dueDate;
         priorityEl.innerText = todo.priority;
         noteLable.innerText = 'NOTES';
-        noteEl.value = todo.note
+        noteEl.value = todo.note;
+
+        let isDueDatePast = isPast(new Date(todo.dueDate))
+        if (isDueDatePast) dueDateEl.classList.add('past')
     }
+
+
 
     // bind EVENTS
 

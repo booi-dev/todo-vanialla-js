@@ -1,3 +1,17 @@
+.group-categories {
+  overflow-y: scroll;
+  height: 60vh;
+}
+
+.group-categories::-webkit-scrollbar {
+  width: 0.2em;
+}
+
+.group-categories::-webkit-scrollbar-thumb {
+  background-color: var(--acc-color);
+  border-radius: 20px;
+}
+
 .add-group-input-field {
   margin-left: 4.2em;
   margin-block: 1em;
@@ -38,18 +52,4 @@
 .grp-del-btn img:hover {
   display: block;
   width: 18px;
-}
-
-.group-categories {
-  overflow-y: scroll;
-  height: 50vh;
-}
-
-.group-categories::-webkit-scrollbar {
-  width: 0.2em;
-}
-
-.group-categories::-webkit-scrollbar-thumb {
-  background-color: var(--acc-color);
-  border-radius: 20px;
 }

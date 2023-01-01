@@ -55,7 +55,7 @@ import PS from './PS'
                 todolist[i] = todo;
                 localStorage.setItem(`${todo.id}`, JSON.stringify(todo))
                 PS.trigger('reRenderEntries')
-                console.log(todolist[i])
+                // console.log(todolist[i])
             }
         }
     }

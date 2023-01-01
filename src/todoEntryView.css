@@ -44,6 +44,7 @@
   border-radius: 50%;
   background-color: #cdcdcd;
 }
+
 .check-status--vier.checked {
   background-color: #000000;
   border: 3px solid #cdcdcd;
@@ -70,6 +71,7 @@
 
 .title--view {
   font-size: 1.4rem;
+  margin-bottom: 0.5em;
 }
 
 .btns-panel--view {
@@ -88,8 +90,8 @@
   color: aqua;
 }
 
-.due-date--view.passed {
-  color: red;
+.due-date--view.past {
+  color: var(--past-color);
 }
 
 .priority--view {
@@ -114,7 +116,7 @@
 
 .title--view,
 .note--view {
-  padding: 0.5em 4px;
+  padding: 0.5em 6px;
   background-color: transparent;
   border: none;
   color: #e5e5e5;
@@ -122,13 +124,15 @@
 }
 
 .title--view:focus,
-.note--view:focus {
+.title--view:hover,
+.note--view:focus,
+.note--view:hover {
   background-color: #101010;
   outline: none;
 }
 
 .note-label--view {
   font-size: 1rem;
-  translate: 4px;
+  translate: 6px;
   color: #8e8e8e;
 }

@@ -20,7 +20,7 @@ function app() {
     let currentDate = getDate(date)
     let currentMonth = format(date, 'MMMM')
     let dayState = format(date, 'B')
-    console.log(dayState)
+    // console.log(dayState)
 
     let dayEl = DOM.find(".day")
     let dateEl = DOM.find(".date")
@@ -48,8 +48,9 @@ function app() {
 
     PS.trigger('renderEntries')
     inputEntry()
-    let removeAll = DOM.findId("remove-all-task")
-    removeAll.onclick = function () {
+
+    let clearAllBtn = DOM.find('.remove-task')
+    clearAllBtn.onclick = function () {
         PS.trigger('removeAllEntry')
         PS.trigger('delAllTodo')
     }

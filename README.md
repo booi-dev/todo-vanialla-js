@@ -34,6 +34,6 @@ Date: DONE
 
 Priority update func:
 
-group:
+group: switch
 
 date picker

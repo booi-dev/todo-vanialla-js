@@ -27,7 +27,7 @@
 }
 
 .due-date--entry.past {
-  color: #7e1b1b;
+  color: var(--past-color);
 }
 
 .check--entry {

@@ -2,6 +2,7 @@
   width: 100%;
   border: none;
   padding: 14px;
+  margin-block: 1em;
   line-height: 16px;
   resize: none;
   border: 1px solid var(--card-bg-3-color);
