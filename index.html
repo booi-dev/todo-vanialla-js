@@ -14,11 +14,11 @@
           <div class="setting"></div>
           <div class="user-name">{ your name }</div>
         </div>
-        <div class="group-items">
+        <!-- <div class="group-items">
           <div>Today</div>
           <div>Next 7 days</div>
           <div>All my tasks</div>
-        </div>
+        </div> -->
         <div>
           <div class="grp-header">
             <h2 class="my-lists">My lists</h2>
@@ -28,8 +28,11 @@
             class="add-group-input-field hidden"
             placeholder="+ group"
           />
-
           <div class="group-categories" data-group-categories></div>
+        </div>
+        <div class="clear-data-section">
+          <label for="">clear local-storage</label>
+          <button class="remove-task" id="clear">clear all</button>
         </div>
       </section>
       <main class="app-main">
@@ -62,7 +65,6 @@
         <div class="app-entries" data-todo-items></div>
         <div class="entry-backdrop--view hidden"></div>
         <div data-entry-view></div>
-        <!-- <button id="remove-all-task">remove all task</button> -->
       </main>
     </div>
   </body>
