@@ -1,0 +1,99 @@
+:root {
+  --sidebar-width: 300px;
+  --sidebar-close-width: 150px;
+  --sidebar-open-offset: calc(
+    var(--sidebar-width) - var(--sidebar-close-width)
+  );
+}
+
+.app-sidebar {
+  position: absolute;
+  width: var(--sidebar-width);
+  height: 100%;
+  opacity: 0;
+  transform: translateX(
+    calc(var(--sidebar-width) * -1 - var(--sidebar-close-width) * -1)
+  );
+  transition-property: opacity, transform;
+  transition-duration: 0.5s;
+  z-index: 4;
+}
+
+.app-sidebar.stick {
+  transform: none;
+  opacity: 1;
+}
+
+.app-sidebar:hover {
+  transform: none;
+  opacity: 1;
+}
+
+.account,
+.group-items,
+.grp-header,
+.clear-data-section {
+  padding: 0 1.5em;
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5em;
+  height: var(--size-header);
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-right: 0.4em;
+}
+
+.setting-user-name {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.setting {
+  position: fixed;
+  left: 1.5em;
+  top: 1.5em;
+  border: 2px solid var(--acc-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pin {
+  background-color: transparent;
+  border: none;
+}
+
+.group-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+.my-lists {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.clear-data-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  padding-block: 1em;
+  position: absolute;
+  bottom: -0px;
+}
+
+.clear-data-section button {
+  border: none;
+  padding: 0.3em;
+  background-color: red;
+}

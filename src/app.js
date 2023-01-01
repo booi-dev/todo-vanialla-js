@@ -33,8 +33,7 @@ function app() {
     let greeting = DOM.find(".greeting-time")
     if (dayState === 'in the afternoon') greeting.innerText = "Good Morning"
     if (dayState === 'in the afternoon') greeting.innerText = "Good Afternoon"
-    if (dayState === 'in the evening') greeting.innerText = "Good Evening"
-    if (dayState === 'in the night') greeting.innerText = "Good Night"
+    if ((dayState === 'in the evening') || (dayState === 'at night')) greeting.innerText = "Good Evening"
 
     let syncEl = DOM.find(".sync")
     let syncIcon = DOM.createEl('img')

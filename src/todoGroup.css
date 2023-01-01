@@ -13,10 +13,10 @@
 }
 
 .add-group-input-field {
-  margin-left: 4.2em;
+  margin-left: 2.2em;
   margin-block: 1em;
   padding: 0 0.4em;
-  width: calc(350px - 4.2em);
+  width: calc(var(--sidebar-width) - 4.2em);
   height: 35px;
 }
 
@@ -26,7 +26,7 @@
   justify-content: space-between;
   font-size: 1rem;
   padding: 0.4em 0;
-  padding-left: 3.5em;
+  padding-left: 1.7em;
   margin: 0.3em 0;
   color: var(--color-2);
 }
