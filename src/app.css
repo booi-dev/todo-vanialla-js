@@ -114,9 +114,17 @@ body {
 .account {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 0.5em;
   height: var(--size-header);
   margin-bottom: 0.5em;
+  padding-right: 0.4em;
+}
+
+.setting-user-name {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
 }
 
 .setting {

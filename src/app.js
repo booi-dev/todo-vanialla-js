@@ -4,13 +4,13 @@ import "./todoEntryCreate";
 import './todoEntryRead'
 import "./todoEntryDelete";
 import "./todoEntryView";
+import './sidebar'
 import './todoGroups'
 import PS from './PS'
 import inputEntry from './inputEntry'
 import DOM from './DOMquery'
 
 import SYNC_ICON from "./img/sync-icon.png";
-import SETTING_ICON from "./img/setting-icon.png";
 
 import './app.css'
 
@@ -41,19 +41,8 @@ function app() {
     syncIcon.src = SYNC_ICON;
     syncEl.append(syncIcon)
 
-    let settingEl = DOM.find(".setting")
-    let settingIcon = DOM.createEl('img')
-    settingIcon.src = SETTING_ICON
-    settingEl.append(settingIcon)
-
     PS.trigger('renderEntries')
     inputEntry()
-
-    let clearAllBtn = DOM.find('.remove-task')
-    clearAllBtn.onclick = function () {
-        PS.trigger('removeAllEntry')
-        PS.trigger('delAllTodo')
-    }
 
 }
 
