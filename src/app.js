@@ -10,6 +10,7 @@ import inputEntry from './inputEntry'
 import DOM from './DOMquery'
 
 import SYNC_ICON from "./img/sync-icon.png";
+import SETTING_ICON from "./img/setting-icon.png";
 
 import './app.css'
 
@@ -40,6 +41,10 @@ function app() {
     syncIcon.src = SYNC_ICON;
     syncEl.append(syncIcon)
 
+    let settingEl = DOM.find(".setting")
+    let settingIcon = DOM.createEl('img')
+    settingIcon.src = SETTING_ICON
+    settingEl.append(settingIcon)
 
     PS.trigger('renderEntries')
     inputEntry()
@@ -48,11 +53,6 @@ function app() {
         PS.trigger('removeAllEntry')
         PS.trigger('delAllTodo')
     }
-
-
-
-
-
 
 }
 

@@ -15,6 +15,13 @@
 
   --size-font-1: 1rem;
   --size-font-2: 1.2rem;
+
+  --color-1: #c6c6c6;
+  --color-2: #8e8e92;
+  --color-3: #737374;
+
+  --top-bottom-paddin: 0.8em;
+  --size-header: 4em;
 }
 
 body {
@@ -23,15 +30,6 @@ body {
   font-size: var(--size-font-2);
   font-family: "Roboto", sans-serif;
   font-weight: 100;
-}
-
-:root {
-  --color-1: #c6c6c6;
-  --color-2: #8e8e92;
-  --color-3: #737374;
-
-  --top-bottom-paddin: 0.8em;
-  --size-header: 4em;
 }
 
 .app-container {
@@ -92,7 +90,7 @@ body {
 }
 
 .app-entries::-webkit-scrollbar-thumb {
-  /* background-color: var(--color-1); */
+  background-color: var(--acc-color);
   border-radius: 20px;
 }
 
@@ -109,4 +107,34 @@ body {
 .group-items,
 .grp-header {
   padding: 0 3em;
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  height: var(--size-header);
+  margin-bottom: 0.5em;
+}
+
+.setting {
+  border: 2px solid #e5e5e5;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.group-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+.my-lists {
+  font-size: 1.5rem;
+  font-weight: 400;
 }
