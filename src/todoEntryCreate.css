@@ -26,6 +26,10 @@
   margin: 0 4px;
 }
 
+.due-date--entry.past {
+  color: #7e1b1b;
+}
+
 .check--entry {
   width: 30px;
   height: 30px;

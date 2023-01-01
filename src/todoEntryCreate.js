@@ -1,3 +1,4 @@
+import { isPast } from 'date-fns'
 import DOM from './DOMquery'
 import PS from './PS'
 import DELETE_BTN from './img/delete.png'
@@ -115,7 +116,6 @@ import "./todoEntryCreate.css";
         titleEntry.addEventListener('mouseleave', titleEntryMouseLeave)
 
 
-
         // checked functionality
         const checkedDiv = function (params) {
             if (todo.check) {
@@ -128,12 +128,18 @@ import "./todoEntryCreate.css";
             }
         }
 
+        const dueDatePast = function (params) {
+            let isDueDatePast = isPast(new Date(todo.dueDate))
+            if (isDueDatePast) dueDateEL.classList.add('past')
+        }
+
 
         // CREATE func
 
         setElementAtt()
         setElementsValueNtext()
         checkedDiv()
+        dueDatePast()
         render()
         return titleEntry;
     }

@@ -26,7 +26,6 @@ import './todoGroup.css'
         let groupEl = DOM.find(`[data-group-id='${id}']`)
         groupEl.remove()
         removeGroupFromLS(id)
-        console.log(id)
     }
 
     const createGroupEl = function (group) {
@@ -74,8 +73,6 @@ import './todoGroup.css'
             createGroupEl(group)
         }
     }
-
-    console.log(groups)
 
     const uid = function () {
         return Date.now().toString(36) + Math.random().toString(36).substring(2);
