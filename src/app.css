@@ -10,15 +10,18 @@
   --bg-color: #1a1a1a;
   --acc-color: aqua;
 
+  --card-bg-1-color: #2e2e2e;
+  --card-bg-2-color: #252525;
+
+  --card-bg-3-color: #424242;
+  --card-bg-4-color: #1c1c1c;
+
   --color-1: #e5e5e5;
   --color-2: #8e8e8e;
+  --color-3: #454545;
 
   --size-font-1: 1rem;
   --size-font-2: 1.2rem;
-
-  --color-1: #c6c6c6;
-  --color-2: #8e8e92;
-  --color-3: #737374;
 
   --top-bottom-paddin: 0.8em;
   --size-header: 4em;
@@ -26,7 +29,7 @@
 
 body {
   background-color: var(--bg-color);
-  color: var(--color-text-1);
+  color: var(--color-1);
   font-size: var(--size-font-2);
   font-family: "Roboto", sans-serif;
   font-weight: 100;

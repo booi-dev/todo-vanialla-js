@@ -30,7 +30,6 @@ import "./todoEntryCreate.css";
         titleEl.classList.add('title--entry')
         inGroup.classList.add('group--entry')
         isCheck.classList.add('check--entry')
-        if (todo.check) isCheck.classList.add('checked')
         dueDateEL.classList.add('due-date--entry')
         delBtn.classList.add('del-btn--entry')
         delIcon.classList.add('del-icon--entry')
@@ -115,10 +114,26 @@ import "./todoEntryCreate.css";
         titleEntry.addEventListener('mouseover', titleEntryMouseOver)
         titleEntry.addEventListener('mouseleave', titleEntryMouseLeave)
 
+
+
+        // checked functionality
+        const checkedDiv = function (params) {
+            if (todo.check) {
+                titleEntry.classList.add('checked')
+                inGroup.classList.add('checked')
+                isCheck.classList.add('checked')
+                dueDateEL.classList.add('checked')
+                titleEl.removeEventListener('click', titleClickEventHandler)
+                titleEntry.removeEventListener('click', entryClickEventHandler)
+            }
+        }
+
+
         // CREATE func
 
         setElementAtt()
         setElementsValueNtext()
+        checkedDiv()
         render()
         return titleEntry;
     }

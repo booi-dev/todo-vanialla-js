@@ -14,7 +14,7 @@
   padding: 0.4em 0;
   padding-left: 3.5em;
   margin: 0.3em 0;
-  color: #8e8e8e;
+  color: var(--color-2);
 }
 
 .grp-div h3 {
@@ -23,7 +23,7 @@
 }
 
 .grp-div:hover {
-  background-color: #2e2e2e;
+  background-color: var(--card-bg-2-color);
 }
 
 .grp-del-btn img {
@@ -50,6 +50,6 @@
 }
 
 .group-categories::-webkit-scrollbar-thumb {
-  background-color: #313566;
+  background-color: var(--acc-color);
   border-radius: 20px;
 }

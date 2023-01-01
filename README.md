@@ -28,12 +28,12 @@ Load, entrie after updates. DONE.
 
 Del - re-render fix. DONE
 
-...
-
 Date: DONE
+
+...
 
 Priority update func:
 
 group:
 
-sorting - newest
+date picker
