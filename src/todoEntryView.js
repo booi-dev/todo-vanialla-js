@@ -65,6 +65,9 @@ import './todoEntryView.css';
         noteEl.value = todo.note;
 
         let isDueDatePast = isPast(new Date(todo.dueDate))
+        console.log(new Date(todo.dueDate))
+        console.log(todo.dueDate)
+        console.log(isDueDatePast)
         if (isDueDatePast) dueDateEl.classList.add('past')
     }
 

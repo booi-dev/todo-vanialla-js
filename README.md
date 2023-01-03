@@ -36,4 +36,8 @@ Priority update func:
 
 group: switch
 
-date picker
+date picker:
+
+remove group when local storage is cleared
+
+is past is not working

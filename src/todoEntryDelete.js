@@ -8,7 +8,6 @@ import PS from './PS'
     }
 
     const removeAllEntry = function name() {
-
         let titleEntryDiv = DOM.findAtt('[data-todo-items]')
         titleEntryDiv.replaceChildren()
     }

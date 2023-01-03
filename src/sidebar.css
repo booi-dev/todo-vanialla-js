@@ -16,7 +16,7 @@
   );
   transition-property: opacity, transform;
   transition-duration: 0.5s;
-  z-index: 4;
+  z-index: 2;
 }
 
 .app-sidebar.stick {
