@@ -96,7 +96,7 @@ body {
 .app-main {
   position: absolute;
   left: var(--sidebar-close-width);
-  right: 0;
+  right: var(--sidebar-close-width);
   padding-inline: 10%;
   padding-block: var(--top-bottom-paddin);
   transition: margin-left 0.5s, padding-right var(--padding-transition);
@@ -106,4 +106,5 @@ body {
 .app-main.side-bar-is-drawn,
 .app-main.side-bar-is-pinned {
   margin-left: var(--sidebar-open-offset);
+  right: 0;
 }
