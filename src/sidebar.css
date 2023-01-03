@@ -1,9 +1,18 @@
 :root {
   --sidebar-width: 300px;
+  --sidebar-width-medium: 250px;
+  --sidebar-width-small: 200px;
+
   --sidebar-close-width: 150px;
+  --sidebar-close-width-medium-large: 100px;
+  --sidebar-close-width-medium: 50px;
+  --sidebar-close-width-small: 10px;
+
   --sidebar-open-offset: calc(
     var(--sidebar-width) - var(--sidebar-close-width)
   );
+  --sidebar-open-offset-medium: calc(var(--sidebar-width) - 200px;);
+  --sidebar-open-offset-small: calc(var(--sidebar-width) - 250px);
 }
 
 .app-sidebar {
@@ -11,10 +20,11 @@
   width: var(--sidebar-width);
   height: 100%;
   opacity: 0;
+  background-color: var(--card-bg-2-color);
   transform: translateX(
     calc(var(--sidebar-width) * -1 - var(--sidebar-close-width) * -1)
   );
-  transition-property: opacity, transform;
+  transition-property: opacity, transform, width;
   transition-duration: 0.5s;
   z-index: 2;
 }
@@ -53,7 +63,7 @@
   gap: 0.5em;
 }
 
-.setting {
+/* .setting {
   position: fixed;
   left: 1.5em;
   top: 1.5em;
@@ -64,6 +74,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: left, top, width, height;
+  transition-duration: 0.5s;
+} */
+
+.left-bar {
+  position: fixed;
+  left: 0;
+  top: 2em;
+  width: 0.2em;
+  height: 2em;
+  background-color: var(--acc-color);
 }
 
 .pin {
@@ -96,4 +117,25 @@
   border: none;
   padding: 0.3em;
   background-color: red;
+}
+
+@media (max-width: 1000px) {
+  /* .setting {
+    left: 1em;
+    top: 1em;
+    width: 30px;
+    height: 30px;
+  } */
+  .app-sidebar {
+    position: fixed;
+    width: var(--sidebar-width-medium);
+  }
+}
+
+@media (max-width: 700px) {
+  .app-sidebar {
+    /* display: fixed; */
+    width: var(--sidebar-width-small);
+    /* background-color: var(--color-3); */
+  }
 }

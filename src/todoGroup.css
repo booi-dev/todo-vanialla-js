@@ -13,11 +13,22 @@
 }
 
 .add-group-input-field {
-  margin-left: 2.2em;
+  /* margin-left: 2.2em; */
   margin-block: 1em;
-  padding: 0 0.4em;
-  width: calc(var(--sidebar-width) - 4.2em);
-  height: 35px;
+  padding: 0 1.3em;
+  font-size: inherit;
+  color: inherit;
+  width: 100%;
+  height: 38px;
+  background-color: transparent;
+  background-color: #101010;
+  border: none;
+}
+
+.add-group-input-field:hover,
+.add-group-input-field:focus {
+  background-color: #101010;
+  outline: none;
 }
 
 .grp-div {

@@ -12,13 +12,13 @@ import { el } from 'date-fns/locale';
     let sideBarEl = DOM.find(".app-sidebar")
     let mainEl = DOM.find(".app-main")
 
-    let settingEl = DOM.find(".setting")
-    let settingIcon = DOM.createEl('img')
-    settingIcon.src = SETTING_ICON;
+    // let settingEl = DOM.find(".setting")
+    // let settingIcon = DOM.createEl('img')
+    // settingIcon.src = SETTING_ICON;
 
-    const settingAccountSection = function (params) {
-        settingEl.append(settingIcon)
-    }
+    // const settingAccountSection = function (params) {
+    //     settingEl.append(settingIcon)
+    // }
 
     // settingEl.insertRule(':hover { color: white }', 0);
 
@@ -55,8 +55,6 @@ import { el } from 'date-fns/locale';
         }
     }
 
-    // mainEl.classList.toggle("side-bar-is-drawn")
-
     const pinClickEventHandler = function () {
         isPin = !isPin;
         sideBarEl.classList.toggle("stick")
@@ -73,7 +71,7 @@ import { el } from 'date-fns/locale';
         }
     }
 
-    settingAccountSection()
+    // settingAccountSection()
     settingPin()
     settingClearAllBtn()
 

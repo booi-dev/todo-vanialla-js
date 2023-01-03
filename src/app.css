@@ -79,7 +79,6 @@ body {
 }
 
 .app-entries {
-  /* position: relative; */
   height: calc(100vh - (var(--size-header) + 44px + 1.6em + 2em));
   overflow-y: scroll;
 }
@@ -97,7 +96,7 @@ body {
   position: absolute;
   left: var(--sidebar-close-width);
   right: var(--sidebar-close-width);
-  padding-inline: 10%;
+  padding-inline: 1em;
   padding-block: var(--top-bottom-paddin);
   transition: margin-left 0.5s, padding-right var(--padding-transition);
   transition-duration: 0.5s;
@@ -107,4 +106,30 @@ body {
 .app-main.side-bar-is-pinned {
   margin-left: var(--sidebar-open-offset);
   right: 0;
+}
+
+@media (max-width: 1000px) {
+  .app-main {
+    left: var(--sidebar-close-width-medium-large);
+    right: var(--sidebar-close-width-medium-large);
+  }
+}
+
+@media (max-width: 700px) {
+  .app-main {
+    left: var(--sidebar-close-width-medium);
+    right: var(--sidebar-close-width-medium);
+  }
+  .app-main.side-bar-is-drawn,
+  .app-main.side-bar-is-pinned {
+    margin-left: 0;
+    right: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .app-main {
+    left: var(--sidebar-close-width-small);
+    right: var(--sidebar-close-width-small);
+  }
 }

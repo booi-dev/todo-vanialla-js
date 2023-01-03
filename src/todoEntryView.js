@@ -1,4 +1,4 @@
-import { isPast } from 'date-fns';
+// import { isPast } from 'date-fns';
 import DOM from './DOMquery';
 import PS from './PS';
 import DELETE_BTN from './img/delete.png';
@@ -64,14 +64,9 @@ import './todoEntryView.css';
         noteLable.innerText = 'NOTES';
         noteEl.value = todo.note;
 
-        let isDueDatePast = isPast(new Date(todo.dueDate))
-        console.log(new Date(todo.dueDate))
-        console.log(todo.dueDate)
-        console.log(isDueDatePast)
-        if (isDueDatePast) dueDateEl.classList.add('past')
+        // let isDueDatePast = isPast(new Date(todo.dueDate))
+        // if (isDueDatePast) dueDateEl.classList.add('past')
     }
-
-
 
     // bind EVENTS
 
