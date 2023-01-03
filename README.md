@@ -1,43 +1,15 @@
-Module:
-an array that holds all the notes(obj) DONE
-create - (DONE), read, update, del. DONE
+Missing:
 
-Module:
-factory func to dynamicly create obj DONE
-add note funtionality. DONE
-
-allow, pubsub funtion to accept multiple argument. DONE
-use object destructuring DONE
-dynamic parameter DONE
-
-seperate module for updating DOM / Creating DOM. DONE
-
-add delete functionality: DONE
-update: DONE
-read: DONE
-
-add newly created item to the todoData as well... after the DOM is updated. DONE
-
-local storage DONE
-check / uncheck : DONE
-state management : DONE
-
-fix ID issue. DONE
-
-Load, entrie after updates. DONE.
-
-Del - re-render fix. DONE
-
-Date: DONE
-
-...
-
-Priority update func:
-
-group: switch
-
+<<<<<<< HEAD
 date picker:
 
 remove group when local storage is cleared
 
 is past is not working
+=======
+Feature to update priority.
+Func to switch group.
+date picker
+
+view live demo https://booimangang.github.io/to-do-list/
+>>>>>>> 19e1ae6d1a1a4cb935df59cf821b8f9b05c2a12b
